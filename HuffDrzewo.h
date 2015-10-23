@@ -4,18 +4,39 @@
 #include <string>
 #include <iostream>
 
-class Node
-{
-public:
-	Node(char znak, int wartosc);
-	Node(int wartosc);
-	~Node();
 
-	bool CzyLisc;
-	char znak;
-	int wartosc;
-	Node* left, *right;
-};
+using namespace std;
+
+namespace _AHuffman{
+
+	class Node
+	{
+	public:
+		Node(char znak, int wartosc);
+		Node(int wartosc);
+		Node();
+		~Node();
+
+		bool CzyLisc;
+		char znak;
+		int wartosc;
+		Node* left, *right;
+
+		string kod;
+	};
+
+	class Tree
+	{
+	public:
+		Tree();
+		~Tree();
+		int wartosc;
+
+	private:
+
+	};
+
+}
 
 
 

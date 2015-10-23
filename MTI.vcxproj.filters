@@ -21,12 +21,18 @@
     <ClCompile Include="AlgHuff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HuffDrzewo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AlgHuff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HuffDrzewo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

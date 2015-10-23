@@ -65,10 +65,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AlgHuff.cpp" />
+    <ClCompile Include="HuffDrzewo.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlgHuff.h" />
+    <ClInclude Include="HuffDrzewo.h" />
     <ClInclude Include="Spis.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

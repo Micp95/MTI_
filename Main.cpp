@@ -8,7 +8,6 @@ using namespace _AHuffman;
 
 int main(){
 
-	//Dziala
 
 	string tresc = "abbccc";
 	AHuffman koder;

@@ -12,29 +12,24 @@ namespace _AHuffman{
 	class Node
 	{
 	public:
-		Node(char znak, int wartosc);
-		Node(int wartosc);
-		Node();
+		//Konstruktory i destruktory
+		Node(char znak, int wartosc);	//Konstruktor dla liscia
+		Node(int wartosc);				//Konstruktor dla wezla
+		Node();							//Kostruktor do mozliwosci tworzenia tablicy
 		~Node();
 
-		bool CzyLisc;
-		char znak;
-		int wartosc;
-		Node* left, *right;
 
-		string kod;
+		void Odwiedz(string kod);		//Przypisanie kodu do znaku
+
+		//Struktura przechowywanych danych
+		bool CzyLisc;		//Czy element przechowuje znak? - czy jest lisciem
+		Node* left, *right;	//Struktura drzewa BST
+
+		int wartosc;		//Przechowywana waga wezla
+		char znak;			//Przechowywany znak
+		string kod;			//Przechowywany kod odpowiadajacy danemu znaku
 	};
 
-	class Tree
-	{
-	public:
-		Tree();
-		~Tree();
-		int wartosc;
-
-	private:
-
-	};
 
 }
 

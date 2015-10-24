@@ -7,8 +7,13 @@ using namespace std;
 using namespace _AHuffman;
 
 int main(){
+	string tresc = "abbccc";
 	AHuffman koder;
-	koder.Koduj("abbccc");
+
+	cout << "Tresc do zakodowania:\t\t" << tresc;
+	cout << "\n\nTresc zakodowana:\t\t" << koder.Koduj(tresc) << endl;
+	cout << "\nTresc odkodowana:\t\t" << koder.Dekoduj() << endl<<endl;
+	
 
 	system("pause");
 	return 0;

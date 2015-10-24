@@ -2,17 +2,18 @@
 
 namespace _AHuffman{
 
-	AHuffman::AHuffman()
-	{
-	}
-
+	//Konstruktory i destruktory
 	AHuffman::~AHuffman()
 	{
-
+		if (znaki != NULL)
+			delete[] znaki;
 	}
+
+
+	//Tworzenie potrzebnych struktur
 	void AHuffman::StworzListe(){
 		string znalezione = "";
-		int* wystapienia = new int[100];
+		int* wystapienia = new int[MaksZnakow];
 		int size = 0;
 
 		int tmp;
@@ -36,17 +37,13 @@ namespace _AHuffman{
 		this->size = size;
 		tablica = znalezione;
 		delete[] wystapienia;
-		//return 0;
 	}
-	void AHuffman::Koduj(string tresc){
-		tekst = tresc;
-		StworzListe();
-		
+
+	void AHuffman::StworzDrzewo(){
 		Node** drzewa = new Node*[size];
 		for (int k = 0; k < size; k++){
 			drzewa[k] = &znaki[k];
 		}
-
 
 		int zmsize = size;
 		MM indeksy;
@@ -66,14 +63,75 @@ namespace _AHuffman{
 			}
 		}
 
-		
 		Drzewo = drzewa[0];
 		delete[] drzewa;
 	}
-	void AHuffman::Dekoduj(string tresc ){
 
+	void AHuffman::StworzSlownik(){
+		Przechodz(Drzewo,"");
 	}
 
+
+	//Algorytm kodujacy
+	void AHuffman::Przechodz(Node* element, string kod){
+		if (element == NULL)
+			return;
+		if (element->left)
+			Przechodz(element->left,kod+"0");
+
+		element->Odwiedz(kod);
+
+		if (element->right)
+			Przechodz(element->right, kod + "1");
+	}
+
+	string AHuffman::Translate(){
+		string zwrot="";
+		for (int k = 0; k < tekst.length(); k++){
+			zwrot += znaki[tablica.find(tekst[k])].kod;
+		}
+		zakodowane = zwrot;
+		return zwrot;
+	}
+
+
+	//Funkcje Glowne
+	string AHuffman::Koduj(string tresc){
+		tekst = tresc;
+		StworzListe();
+		StworzDrzewo();
+		StworzSlownik();
+
+		return Translate();
+	}
+
+	string AHuffman::Dekoduj(string tresc ){
+		if (tresc == "")
+			tresc = zakodowane;
+		string zwrot = "";
+
+		Node* tmp = Drzewo;
+		for (int k = 0; k <= tresc.length(); k++){
+			if (tmp->CzyLisc){
+				zwrot += tmp->znak;
+				tmp = Drzewo;
+			}
+
+			if (k == tresc.length())
+				break;
+
+			if (tresc[k] == '0')
+				tmp = tmp->left;
+			else
+				tmp = tmp->right;
+		}
+
+
+		return zwrot;
+	}
+
+
+	//Funkcja pomocnicza
 	MM AHuffman::MinMin(Node**tab, int size){
 		MM MiMa, zwrot; // min = min1, max = min2
 		zwrot.min = 0;

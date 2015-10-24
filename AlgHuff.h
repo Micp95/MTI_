@@ -8,6 +8,7 @@ using namespace std;
 
 namespace _AHuffman{
 
+	//Klasa pomocnicza - przechowuje dwie wartosci liczbowe
 	struct MM{
 		int min, max;
 	};
@@ -15,35 +16,39 @@ namespace _AHuffman{
 	class AHuffman
 	{
 	public:
-		AHuffman();
+		AHuffman(int Zroznicowanie = 100) :MaksZnakow(Zroznicowanie){ znaki = NULL; }
 		~AHuffman();
 
-		void Koduj(string tresc);
-		void Dekoduj(string tresc = "");
-
-		
+		string Koduj(string tresc);
+		string Dekoduj(string tresc = "");
 
 	private:
-		string tekst;
-		string tablica;
+		int MaksZnakow;		//Zroznicowanie wystepujacych znakow
+		string tekst;		//Zapisanie tekstu do zakodowania
+		string tablica;		//Wszystkie wystepujace znaki (kolejnosc odpowiada indeksowi w tablicy znaki!
+		string zakodowane;	//Przechowany zakodowany juz tekst
 
 
-		Node* znaki;
-		int size;
+		Node* znaki;		//Tablica wszystkich znakow - ulatwia kodowanie tekstu
+		int size;			//Ilosc znakow i rozmiar tablicy znaki
 
+		Node* Drzewo;		//Korzen struktury drzewa
+
+		//Przygotowanie struktury do kodowania
 		void StworzListe();
-		MM MinMin(Node**tab, int size);
-		Node* Drzewo;
-		
-		string zakodowane;
+		void StworzDrzewo();
+		void StworzSlownik();
+
+		//Funkcje kodujace
+		string Translate();								//Tlumaczy tekst na kod
+		void Przechodz(Node* element, string kod);		//Tworzy slownik przechodzac rekurencyjnie przez drzewo
+
+		MM MinMin(Node**tab, int size);		//Funcka pomocnicza - znajduje 2 najmniejsze elementy
 	};
 
 
 
 }
-
-
-
 
 
 #endif

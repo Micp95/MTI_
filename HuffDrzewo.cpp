@@ -22,6 +22,7 @@ namespace _AHuffman{
 		if (left != NULL)
 			delete left;
 	}
+
 	Node::Node(){
 		right = NULL;
 		left = NULL;
@@ -31,14 +32,10 @@ namespace _AHuffman{
 	}
 
 
-	Tree::Tree()
-	{
-
+	void Node::Odwiedz(string _kod){
+		if (CzyLisc){
+			kod = _kod;
+		}
 	}
 
-	Tree::~Tree()
-	{
-
-
-	}
 }

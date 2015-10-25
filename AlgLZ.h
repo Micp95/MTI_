@@ -19,6 +19,8 @@ namespace _ALZ{
 			c = NULL;
 			next = NULL;
 		}
+		Trojka(string tresc);
+
 
 		string wyswielt();
 		Trojka* next;
@@ -40,6 +42,7 @@ namespace _ALZ{
 		string Koduj(string tresc);
 		string Dekoduj(string tresc = "");
 
+		char SymbolPoczatkowy;
 	private:
 		int bs;		//Bufor slownika - wielkosc
 		int bw;		//Bufor wejsciowy - wielkosc
@@ -47,17 +50,17 @@ namespace _ALZ{
 		char* slownik;		//Bufor s³ownika
 		char* wejscie;		//Bufor wejscia
 
-		char SymbolPoczatkowy;
 		Trojka* ZapisaneTrojki;		//Zakodowane trojki
 
 
 		Trojka* Wyszukaj();						//Wyszukiwanie schematu
 		void PrzesuniecieBufora(int przes);		//Przesuniecie buforu: s³ownik i wejœcie =
+		string BuforWejsciowy();
 
 
 		string dane;	//Przechowane dane
 		int danewsk;	//Przechowany indeks aktualnie wczytanych danych
-
+		
 
 
 		//Pomocnicza funcka INLINE do wypisywania buforu

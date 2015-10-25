@@ -72,21 +72,52 @@ namespace _ALZ{
 			
 		}
 
-		tmp = glowny;
-		while (tmp != NULL){
-			cout << tmp->wyswielt() << " ";
-			tmp = tmp->next;
+		ZapisaneTrojki = glowny;
+		string zwrot = "";
 
+		while (glowny != NULL){
+			zwrot += glowny->wyswielt() + " ";
+			glowny = glowny->next;
 		}
-		cout << endl;
 
 
-		return "";
+
+		return zwrot;
 	}
 
 	string ALZ77::Dekoduj(string tresc){
 
-		return "";
+		//Wypelnienie slownika symbolem poczatkowym
+		for (int k = 0; k < bs; k++)
+			slownik[k] = SymbolPoczatkowy;
+		for (int k = 0; k < bw; k++)
+			wejscie[k] = NULL;
+		
+		//Brak dodatkowego wejscia
+		danewsk = dane.length();
+
+		Trojka* aktualna = ZapisaneTrojki;
+
+
+		string odszyfrowany = "";
+		while (aktualna != NULL){
+
+			//Ustawianie buforu wejsciowego
+			for (int k = 0; k < aktualna->c; k++)
+				wejscie[k] = slownik[aktualna->p + k];
+			wejscie[aktualna->c] = aktualna->znak;
+//			WypiszBufor();
+//			cout << endl;
+
+			odszyfrowany += BuforWejsciowy();
+			PrzesuniecieBufora(aktualna->c);
+
+			aktualna = aktualna->next;
+		}
+
+
+
+		return odszyfrowany;
 	}
 
 
@@ -126,8 +157,8 @@ namespace _ALZ{
 
 
 		Trojka* zwrot = new Trojka(znak, pocz, maksdl);
-		WypiszBufor();
-		cout << pocz << " " << maksdl << " " << znak << endl;
+	//	WypiszBufor();
+	//	cout << pocz << " " << maksdl << " " << znak << endl;
 
 		return zwrot;
 	}
@@ -166,6 +197,16 @@ namespace _ALZ{
 
 	}
 
+	string ALZ77::BuforWejsciowy(){
+		string zwrot= "";
+
+		for (int k = 0; k < bw && wejscie[k] != NULL; k++)
+			zwrot += wejscie[k];
+		
+		return zwrot;
+	}
+
+
 	string Trojka::wyswielt(){
 		string zwrot = "("; 
 		zwrot += (p + 48);
@@ -177,6 +218,16 @@ namespace _ALZ{
 		return zwrot;
 	}
 
+	Trojka::Trojka(string tresc){
+		int p1 = tresc.find(',');
+		int p2 = tresc.find(',', p1 + 1);
+
+		znak = tresc[p2 + 1];
+		p = atoi(tresc.substr(1, p1).c_str());
+		c = atoi(tresc.substr(p1+1, p2).c_str());
+		next = NULL;
+		
+	}
 
 
 }

@@ -15,30 +15,36 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AlgHuff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HuffDrzewo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AlgLZ.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AlgRLE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HuffDrzewo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Spis.h">
+    <ClInclude Include="AlgHuff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AlgHuff.h">
+    <ClInclude Include="AlgLZ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgRLE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HuffDrzewo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AlgLZ.h">
+    <ClInclude Include="Spis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

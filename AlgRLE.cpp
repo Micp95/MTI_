@@ -52,7 +52,7 @@ namespace _ARLE
 				while (static_cast<int>(dekodowany[i+1]) < 58 && static_cast<int>(dekodowany[i+1]) > 47)
 				{
 					ile++;
-					temp *= pow(10,ile);
+					temp *= 10;
 					temp += static_cast<int>(dekodowany[i + 1]) - 48;
 					i++;
 				}

@@ -21,7 +21,7 @@ int main()
 	ARLE koder3;
 
 
-	string tresc = "ddddddddddddddddddddddddkkkkpppppffxxx";
+	string tresc = "ddddddddddddddddddddkkkkpppppffxxx";
 	koder WyborKodera = RLE;
 
 

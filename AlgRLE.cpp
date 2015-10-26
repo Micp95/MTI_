@@ -64,6 +64,11 @@ namespace _ARLE
 				}
 				i++;
 			}
+			else
+			{
+				cout << "Tego tekstu nie da sie odkodowac!" << endl;
+				return dekodowany;
+			}
 		}
 
 		return odkodowany;

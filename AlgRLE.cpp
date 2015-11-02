@@ -47,7 +47,7 @@ namespace _ARLE
 			ile = 0;
 			temp = static_cast<int>(dekodowany[i]);
 			if (temp < 58 && temp > 47)
-			{
+			{ 
 				temp -= 48;
 				while (static_cast<int>(dekodowany[i+1]) < 58 && static_cast<int>(dekodowany[i+1]) > 47)
 				{

@@ -7,12 +7,13 @@
 #include "AlgLZ.h"
 #include "AlgRLE.h"
 #include "AlgRoznicowy.h"
-
+#include "Entropy.h"
 using namespace std;
 using namespace _AHuffman;
 using namespace _ALZ;
 using namespace _ARLE;
 using namespace _ARoznicowy;
+using namespace AEntropy;
 
 enum koder{
 	Huffman = 0, LZ77, RLE, Roznicowy
@@ -38,6 +39,7 @@ int main()
 //	cout << Wczytaj("02.jpg",true)<<endl;
 
 	string tresc = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasfdsf";
+	Entropy e1(tresc);
 	koder WyborKodera = RLE;
 
 

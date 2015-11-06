@@ -3,20 +3,20 @@
 
 #include <string>
 #include <iostream>
-
+#include "Koder.h"
 
 using namespace std;
 
 namespace _ARoznicowy{
 
-	class ARoznicowy
+	class ARoznicowy: public Koder
 	{
 	public:
 		ARoznicowy(int stopien = 1);
 		~ARoznicowy();
 
-		string Koduj(string& tekst);
-		string Dekoduj(string tekst = "");
+		virtual string Koduj(string tekst);
+		virtual string Dekoduj(string tekst = "");
 
 		string Podglad();
 	private:

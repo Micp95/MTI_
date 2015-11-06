@@ -1,6 +1,12 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <windows.h>
+#include <time.h>
+#include <cstdlib>
+
+
+#include "StopWatch.h"
 
 #include "Spis.h"
 #include "AlgHuff.h"
@@ -17,38 +23,27 @@ using namespace _ARLE;
 using namespace _ARoznicowy;
 using namespace AEntropy;
 
-enum koder{
-	Huffman = 0, LZ77, RLE, Roznicowy
-};
-
-namespace _MAIN{
-	string Wczytaj(string nazwa,bool bin = false);
-	void Zapis(string nazwa, string tekst, bool bin = false);
-
-}
 using namespace _MAIN;
+
+
+//#define TESTKODER
+//#define TESTPLIKI
 
 
 
 int main()
 {
+#ifdef TESTKODER
+
 	AHuffman koder1;
 	ALZ77 koder2(4, 4);
 	ARLE koder3;
 	ARoznicowy koder4(2);
-	
-//	Zapis("test.txt", "abc", true);
-//	cout << Wczytaj("02.jpg",true)<<endl;
 
-	string tresc = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasfdsf";
-	Entropy e1(tresc);
+	koder WyborKodera = nic;
 
-
-
-	koder WyborKodera = RLE;
-
-
-	cout << "Tresc do zakodowania:\t\t" << tresc<<"\n\n";
+	if (WyborKodera != nic)
+		cout << "Tresc do zakodowania:\t\t" << tresc << "\n\n";
 
 	switch (WyborKodera){
 	case Huffman:
@@ -71,58 +66,53 @@ int main()
 		break;
 	default:
 		break;
-
 	}
 
+#endif
+	
+#ifdef TESTPLIKI
+
+	StopWatch stoper;
+
+	AHuffman koder1;
+
+	string tresc;
+
+	string nazw = "03.zip";
+	string nazw2 = "01.jpg";
+	string tmp;
+
+
+	tresc = Wczytaj("pliki\\" + nazw, true );
+	tmp = nazw.substr(0, 2);
+	tmp += "k";
+	tmp += nazw.substr(2);
+
+
+	stoper.Start();
+	Zapis("pliki\\"+tmp, koder1.Koduj(tresc), true);
+	stoper.Stop();
+	cout << "\n\n\t\tCzas:\t\t" << stoper.MilliSeconds() << endl;
 
 	
+	tresc = Wczytaj("pliki\\" + nazw2, true);
+	tmp = nazw2.substr(0, 2);
+	tmp += "k";
+	tmp += nazw2.substr(2);
 
+	stoper.Start();
+	Zapis("pliki\\" + tmp, koder1.Koduj(tresc), true);
+	stoper.Stop();
+	cout << "\n\n\t\tCzas:\t\t" << stoper.MilliSeconds()<<endl;
+
+#endif
+
+	WykonajTestAlgorytmu(Huffman,1);
 
 	system("pause");
 	return 0;
 }
 
 
-namespace _MAIN{
-	string Wczytaj(string nazwa, bool bin){
-		string zwrot="";
-		fstream plik;
-		if ( bin )
-			plik.open(nazwa.c_str(), ios::in | ios::binary);
-		else
-			plik.open(nazwa.c_str(), ios::in);
-		
-		char *bufor = new char[1024];
-		if (plik.good() == true)
-		{
-			while (!plik.eof()){
-				plik.read(bufor, 1024);
-				zwrot += string(bufor, plik.gcount());
-			}
-		}
-		
 
-		plik.close();
-		return zwrot;
-	}
-	void Zapis(string nazwa, string tekst, bool bin){
-
-		fstream plik;
-		bin = true;
-		if (bin)
-			plik.open(nazwa.c_str(), ios::out | ios::binary | ios::trunc);
-		else
-			plik.open(nazwa.c_str(), ios::out|ios::trunc);
-
-		char *bufor = new char[1024];
-		if (plik.good() == true)
-		{
-			plik.write(tekst.c_str(), tekst.length());
-		}
-
-		delete[] bufor;
-		plik.close();
-	}
-
-}
 

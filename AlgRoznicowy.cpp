@@ -31,7 +31,7 @@ namespace _ARoznicowy{
 
 	}
 
-	string ARoznicowy::Koduj(string& tekst){
+	string ARoznicowy::Koduj(string tekst){
 		this->tekst = tekst;
 		int* liczby = KonwersjaLiczby(tekst);
 

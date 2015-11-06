@@ -1,4 +1,5 @@
 #include "AlgHuff.h"
+#include "Koder.h"
 
 namespace _AHuffman{
 
@@ -118,8 +119,8 @@ namespace _AHuffman{
 		StworzSlownik();
 
 		//Pomocnicze wypisanie slownika
-		for (int k = 0; k < size; k++)
-			cout << znaki[k].znak << " " << znaki[k].kod << endl;
+		//for (int k = 0; k < size; k++)
+		//	cout << znaki[k].znak << " " << znaki[k].kod << endl;
 
 		return Translate();
 	}

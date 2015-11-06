@@ -3,6 +3,7 @@
 
 #include <string>
 #include "HuffDrzewo.h"
+#include "Koder.h"
 
 using namespace std;
 
@@ -13,14 +14,14 @@ namespace _AHuffman{
 		int min, max;
 	};
 
-	class AHuffman
+	class AHuffman: public Koder
 	{
 	public:
 		AHuffman(int Zroznicowanie = 100) :MaksZnakow(Zroznicowanie){ znaki = NULL; }
 		~AHuffman();
 
-		string Koduj(string tresc);
-		string Dekoduj(string tresc = "");
+		virtual string Koduj(string tresc);
+		virtual string Dekoduj(string tresc = "");
 
 	private:
 		int MaksZnakow;		//Zroznicowanie wystepujacych znakow

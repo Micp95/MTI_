@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include "Koder.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ namespace _ALZ{
 
 
 	//Struktura trójek - element listy jednokierunkowej
-	struct Trojka
+	struct Trojka 
 	{
 		Trojka(char z, int p, int c) :znak(z), p(p), c(c){}
 		Trojka(){
@@ -33,14 +34,14 @@ namespace _ALZ{
 
 
 
-	class ALZ77
+	class ALZ77: public Koder
 	{
 	public:
 		ALZ77(int wslownik, int wwejscie);
 		~ALZ77();
 
-		string Koduj(string tresc);
-		string Dekoduj(string tresc = "");
+		virtual string Koduj(string tresc);
+		virtual string Dekoduj(string tresc = "");
 
 		char SymbolPoczatkowy;
 	private:

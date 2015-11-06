@@ -8,6 +8,8 @@
 #include "AlgRLE.h"
 #include "AlgRoznicowy.h"
 #include "Entropy.h"
+
+
 using namespace std;
 using namespace _AHuffman;
 using namespace _ALZ;
@@ -40,6 +42,9 @@ int main()
 
 	string tresc = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasfdsf";
 	Entropy e1(tresc);
+
+
+
 	koder WyborKodera = RLE;
 
 

@@ -27,13 +27,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -121,6 +121,8 @@
     <ClCompile Include="AlgHuff.cpp" />
     <ClCompile Include="AlgLZ.cpp" />
     <ClCompile Include="AlgRLE.cpp" />
+    <ClCompile Include="AlgRoznicowy.cpp" />
+    <ClCompile Include="Entropy.cpp" />
     <ClCompile Include="HuffDrzewo.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
@@ -128,6 +130,8 @@
     <ClInclude Include="AlgHuff.h" />
     <ClInclude Include="AlgLZ.h" />
     <ClInclude Include="AlgRLE.h" />
+    <ClInclude Include="AlgRoznicowy.h" />
+    <ClInclude Include="Entropy.h" />
     <ClInclude Include="HuffDrzewo.h" />
     <ClInclude Include="Spis.h" />
   </ItemGroup>

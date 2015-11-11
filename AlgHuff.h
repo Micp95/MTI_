@@ -22,6 +22,7 @@ namespace _AHuffman{
 
 		virtual string Koduj(string tresc);
 		virtual string Dekoduj(string tresc = "");
+		virtual void Clear();
 
 	private:
 		int MaksZnakow;		//Zroznicowanie wystepujacych znakow

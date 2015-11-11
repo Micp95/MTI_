@@ -13,7 +13,7 @@ namespace _ALZ{
 	//Struktura trójek - element listy jednokierunkowej
 	struct Trojka 
 	{
-		Trojka(char z, int p, int c) :znak(z), p(p), c(c){}
+		Trojka(char z, int p, int c) :znak(z), p(p), c(c),next(NULL){}
 		Trojka(){
 			znak = NULL;
 			p = NULL;
@@ -21,7 +21,11 @@ namespace _ALZ{
 			next = NULL;
 		}
 		Trojka(string tresc);
-
+		
+		~Trojka(){
+			if (next)
+				delete next;
+		}
 
 		string wyswielt();
 		Trojka* next;
@@ -43,6 +47,8 @@ namespace _ALZ{
 		virtual string Koduj(string tresc);
 		virtual string Dekoduj(string tresc = "");
 
+		virtual void Clear();
+
 		char SymbolPoczatkowy;
 	private:
 		int bs;		//Bufor slownika - wielkosc
@@ -50,18 +56,20 @@ namespace _ALZ{
 
 		char* slownik;		//Bufor s³ownika
 		char* wejscie;		//Bufor wejscia
-
-		Trojka* ZapisaneTrojki;		//Zakodowane trojki
-
-
-		Trojka* Wyszukaj();						//Wyszukiwanie schematu
-		void PrzesuniecieBufora(int przes);		//Przesuniecie buforu: s³ownik i wejœcie =
-		string BuforWejsciowy();
-
-
 		string dane;	//Przechowane dane
 		int danewsk;	//Przechowany indeks aktualnie wczytanych danych
 		
+
+		Trojka* ZapisaneTrojki;		//Zakodowane trojki
+
+		Trojka* Wyszukaj();						//Wyszukiwanie schematu
+		void PrzesuniecieBufora(int przes);		//Przesuniecie buforu: s³ownik i wejœcie =
+		string BuforWejsciowy();				//Odczytanie buforu wyjsciowego
+
+
+		//Dla plikow binarnych
+		string zakoduj();
+		void RozkodujBin(string& tresc);
 
 
 		//Pomocnicza funcka INLINE do wypisywania buforu
@@ -74,13 +82,7 @@ namespace _ALZ{
 
 		}
 
-
 	};
-
-
-
-
 }
-
 
 #endif

@@ -11,7 +11,7 @@ namespace AEntropy
 	{
 		this->text = tekst;
 		this->EntropyVal = EntropyFun();
-		cout << "Entropia tekstu wynosi " << this->EntropyVal << endl;
+	//	cout << "Entropia tekstu wynosi " << this->EntropyVal << endl;
 	}
 	Entropy::~Entropy()
 	{

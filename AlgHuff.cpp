@@ -8,6 +8,22 @@ namespace _AHuffman{
 	{
 		if (znaki != NULL)
 			delete[] znaki;
+		if (Drzewo)
+			delete Drzewo;
+	}
+
+	void AHuffman::Clear(){
+		if ( znaki )
+			delete[] znaki;
+		if (Drzewo)
+			delete Drzewo;
+
+		MaksZnakow = 0;
+		tekst = "";
+		tablica = "";
+		zakodowane = "";
+		size = 0;
+
 	}
 
 
@@ -78,7 +94,7 @@ namespace _AHuffman{
 
 		Drzewo = drzewa[0];			//Zapamietanie adresu drzewa
 		delete[] drzewa;			//Usuniecie pomocniczej tablicy
-
+		
 
 
 	}
@@ -173,7 +189,7 @@ namespace _AHuffman{
 				MiMa.min = tmp;
 			}
 		}
-		swap(zwrot.max, zwrot.min);
+		swap(zwrot.max, zwrot.min);		//Zmiana kolejnosci - najczestrze beda po lewej stronie drzewa
 
 		return zwrot;
 	}

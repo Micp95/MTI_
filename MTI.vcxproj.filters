@@ -13,65 +13,89 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Kompresja">
+      <UniqueIdentifier>{467ef8f6-d580-4a63-a20e-41893f43d1b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Kompresja">
+      <UniqueIdentifier>{af32e881-3bf2-441e-8fda-de2f35c83a08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Dzwiek">
+      <UniqueIdentifier>{de774db4-15a3-47fe-a782-71b67a056173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Dzwiek">
+      <UniqueIdentifier>{3b18f21e-e1fc-41ab-b588-4c10c5205909}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AlgHuff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AlgLZ.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AlgRLE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HuffDrzewo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entropy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AlgRoznicowy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StopWatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Koder.cpp">
+    <ClCompile Include="MainFun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainFun.cpp">
+    <ClCompile Include="Koder.cpp">
+      <Filter>Source Files\Kompresja</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgHuff.cpp">
+      <Filter>Source Files\Kompresja</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgLZ.cpp">
+      <Filter>Source Files\Kompresja</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgRLE.cpp">
+      <Filter>Source Files\Kompresja</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgRoznicowy.cpp">
+      <Filter>Source Files\Kompresja</Filter>
+    </ClCompile>
+    <ClCompile Include="Entropy.cpp">
+      <Filter>Source Files\Kompresja</Filter>
+    </ClCompile>
+    <ClCompile Include="HuffDrzewo.cpp">
+      <Filter>Source Files\Kompresja</Filter>
+    </ClCompile>
+    <ClCompile Include="Kompresje.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dzwiek.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AlgHuff.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AlgLZ.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AlgRLE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HuffDrzewo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Spis.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entropy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AlgRoznicowy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StopWatch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AlgHuff.h">
+      <Filter>Header Files\Kompresja</Filter>
+    </ClInclude>
     <ClInclude Include="Koder.h">
+      <Filter>Header Files\Kompresja</Filter>
+    </ClInclude>
+    <ClInclude Include="HuffDrzewo.h">
+      <Filter>Header Files\Kompresja</Filter>
+    </ClInclude>
+    <ClInclude Include="Entropy.h">
+      <Filter>Header Files\Kompresja</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgRoznicowy.h">
+      <Filter>Header Files\Kompresja</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgRLE.h">
+      <Filter>Header Files\Kompresja</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgLZ.h">
+      <Filter>Header Files\Kompresja</Filter>
+    </ClInclude>
+    <ClInclude Include="Kompresje.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dzwiek.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,10 +11,10 @@ namespace AEntropy
 	public:
 		Entropy(string);
 		~Entropy();
-	private:
 		double EntropyVal; // wartosc entropii
-		string text; // tekst ktory kodujemy
+	private:
 		double EntropyFun(); // funkcja liczaca entropie
+		string text; // tekst ktory kodujemy
 		int HowMany(char); // funkcja liczaca ilosc wystapien danego znaku
 	};
 }

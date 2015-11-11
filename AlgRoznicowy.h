@@ -18,6 +18,8 @@ namespace _ARoznicowy{
 		virtual string Koduj(string tekst);
 		virtual string Dekoduj(string tekst = "");
 
+		virtual void Clear();
+
 		string Podglad();
 	private:
 		string tekst;
@@ -27,20 +29,19 @@ namespace _ARoznicowy{
 		int* roznice;
 		int RozniceSize;
 
-		int* poczatek;
+		int* poczatek;			//Przechowane poczatki
 
 		int* KonwersjaLiczby(string tekst);
 		string KonwersaTekst(int* liczby, int size);
 		void GenerujTablice(string tresc);
 
 
+		//Wsparcie binarne
+		int maksRoznica();
+		string KodBin();
+		int dlslow;				//Dlugosc zapisywanych slow
 
 	};
-
-
-
-
 }
-
 
 #endif

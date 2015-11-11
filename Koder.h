@@ -10,7 +10,7 @@ class Koder{
 public:
 	virtual string Koduj(string tresc);
 	virtual string Dekoduj(string tresc);
-
+	virtual void Clear();
 
 };
 

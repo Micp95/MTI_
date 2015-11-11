@@ -122,9 +122,11 @@
     <ClCompile Include="AlgLZ.cpp" />
     <ClCompile Include="AlgRLE.cpp" />
     <ClCompile Include="AlgRoznicowy.cpp" />
+    <ClCompile Include="Dzwiek.cpp" />
     <ClCompile Include="Entropy.cpp" />
     <ClCompile Include="HuffDrzewo.cpp" />
     <ClCompile Include="Koder.cpp" />
+    <ClCompile Include="Kompresje.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainFun.cpp" />
     <ClCompile Include="StopWatch.cpp" />
@@ -134,9 +136,11 @@
     <ClInclude Include="AlgLZ.h" />
     <ClInclude Include="AlgRLE.h" />
     <ClInclude Include="AlgRoznicowy.h" />
+    <ClInclude Include="Dzwiek.h" />
     <ClInclude Include="Entropy.h" />
     <ClInclude Include="HuffDrzewo.h" />
     <ClInclude Include="Koder.h" />
+    <ClInclude Include="Kompresje.h" />
     <ClInclude Include="Spis.h" />
     <ClInclude Include="StopWatch.h" />
   </ItemGroup>

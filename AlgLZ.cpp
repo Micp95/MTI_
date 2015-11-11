@@ -2,12 +2,28 @@
 #include <iostream>
 #include <string>
 
+#include"Spis.h"
 
 
 using namespace std;
-
+using namespace _MAIN;
 
 namespace _ALZ{
+
+	//----------------------------Konstr, Destr, Clear--------------------
+	void ALZ77::Clear(){
+		SymbolPoczatkowy = 0;
+		if (slownik)
+			delete[] slownik;
+		if (wejscie)
+			delete[]wejscie;
+
+		if (ZapisaneTrojki)
+			delete ZapisaneTrojki;
+
+		dane = "";
+		danewsk = 0;
+	}
 
 	ALZ77::ALZ77(int wslownik, int wwejscie) :bs(wslownik), bw(wwejscie)
 	{
@@ -18,23 +34,24 @@ namespace _ALZ{
 
 	ALZ77::~ALZ77()
 	{
-		if (slownik != NULL)
+		if (slownik)
 			delete[] slownik;
 
-		if (wejscie != NULL)
+		if (wejscie)
 			delete[] wejscie;
 
-		if (ZapisaneTrojki != NULL)
-			delete[] ZapisaneTrojki;
+		if (ZapisaneTrojki)
+			delete ZapisaneTrojki;
 	}
 
 
 
+	//----------------------------Funkcje glowne (publiczne)-------------
 	string ALZ77::Koduj(string tresc){
 		dane = tresc;
 
 		SymbolPoczatkowy = dane[0];
-		
+
 		//Wypelnienie slownika poczatkowa wartoscia
 		for (int k = 0; k < bs; k++)
 			slownik[k] = dane[0];
@@ -47,52 +64,43 @@ namespace _ALZ{
 				wejscie[k] = NULL;
 		}
 
-		Trojka* glowny = NULL;
-		Trojka* tmp = NULL;
-		Trojka*tmpZ = NULL;
-		ZapisaneTrojki = tmpZ = NULL;
+		//Zmienne pomocnicze
+		Trojka* glowny, *tmp, *tmpZ;
+		ZapisaneTrojki = tmpZ = glowny = NULL;
+
+		//Wykonanie algorytmu
 		while (wejscie[0] != NULL){
 			tmp = Wyszukaj();
 			PrzesuniecieBufora(tmp->c);
 
-			if (tmpZ == NULL)
-			{
+			if (tmpZ == NULL){
 				glowny = tmp;
 				tmpZ = glowny;
-			//	ZapisaneTrojki = tmp;
-			//	tmpZ = ZapisaneTrojki;
 			}
 			else{
 				tmpZ->next = tmp;
 				tmpZ = tmp;
 				tmpZ->next = NULL;
 			}
-
-
-			
 		}
 
 		ZapisaneTrojki = glowny;
-		string zwrot = "";
-
-		while (glowny != NULL){
-			zwrot += glowny->wyswielt() + " ";
-			glowny = glowny->next;
-		}
-
-
-
-		return zwrot;
+		return zakoduj();	//Zwrot w postaci binarnej
 	}
 
 	string ALZ77::Dekoduj(string tresc){
 
+		//Sprawdzenie czy z pliku - jesli nie dekoduje wg. danych kodera
+		if (tresc != "")
+			RozkodujBin(tresc);
+
 		//Wypelnienie slownika symbolem poczatkowym
 		for (int k = 0; k < bs; k++)
 			slownik[k] = SymbolPoczatkowy;
+		//Zerowanie wejscia
 		for (int k = 0; k < bw; k++)
 			wejscie[k] = NULL;
-		
+
 		//Brak dodatkowego wejscia
 		danewsk = dane.length();
 
@@ -100,14 +108,14 @@ namespace _ALZ{
 
 
 		string odszyfrowany = "";
+
+		//Algorytm wykonuje sie dopoki ma trojki
 		while (aktualna != NULL){
 
 			//Ustawianie buforu wejsciowego
 			for (int k = 0; k < aktualna->c; k++)
 				wejscie[k] = slownik[aktualna->p + k];
 			wejscie[aktualna->c] = aktualna->znak;
-//			WypiszBufor();
-//			cout << endl;
 
 			odszyfrowany += BuforWejsciowy();
 			PrzesuniecieBufora(aktualna->c);
@@ -115,18 +123,93 @@ namespace _ALZ{
 			aktualna = aktualna->next;
 		}
 
-
-
 		return odszyfrowany;
 	}
 
 
+	//---------------------------Obsluga pliku binarnego-----------------
+	string ALZ77::zakoduj(){
+		string zwrot = "";
+
+
+		//Dodanie symbolu poczatkowego
+		zwrot += dec_to_bin(SymbolPoczatkowy);
+
+
+		//Pomocnicze zmienne
+		Trojka* tmp = ZapisaneTrojki;
+		int dl = dlslowa(bs);
+		char* tabtmp;
+
+
+		//Dopoki sa trojki - dopisuje je do wyjscia
+		while (tmp)
+		{
+			tabtmp =  int_to_bin(tmp->p, dl);
+			zwrot += string(tabtmp,dl);
+			delete[] tabtmp;
+
+			tabtmp = int_to_bin(tmp->c, dl);
+			zwrot += string(tabtmp, dl);
+			delete[] tabtmp;
+
+			zwrot += dec_to_bin(tmp->znak);
+			tmp = tmp->next;
+		}
+		return zwrot;
+	}
+
+	void ALZ77::RozkodujBin(string& tresc){
+
+
+		//Dla pewnosci - zwolnienie pamieci
+		if (ZapisaneTrojki)
+			delete ZapisaneTrojki;
+
+		//Zmienne pomocnicze
+		int dl = dlslowa(bs);
+		Trojka* tmp, *tmp2;
+		tmp = NULL;
+		long long filelen = tresc.length();
+		long long index = 0;
+		SymbolPoczatkowy = bin_to_dec(tresc, index, index + 8);	//odczytanie znaku poczatkowego
+		index += 8;
+		int p, c;
+		char znak;
+
+		//Dopoki nie odczytalismy calego pliku
+		while (index < filelen){
+
+			//Pobranie odpowiednich danych
+			p = bin_to_int(tresc, index, index + dl,false);
+			index += dl;
+			c = bin_to_int(tresc, index, index + dl, false);
+			index += dl;
+			znak = bin_to_dec(tresc, index, index + 8);
+			index += 8;
+
+			//Stworzenie odpowiedniej trojki
+			tmp2 = new Trojka(znak, p, c);
+			if (tmp){
+				tmp->next = tmp2;
+				tmp = tmp2;
+			}
+			else
+				ZapisaneTrojki = tmp = tmp2;
+		}
+	}
+
+
+
+	//---------------------------Funkcje algorytmu------------------
 	Trojka* ALZ77::Wyszukaj(){
 
 		int pocz = 0;
 		int maksdl = 0;
-
 		int aktdl = 0;
+
+
+		//Petla wyszukujaca najdluzszego podciagu
 		for (int k = 0; k < bs; k++){
 			aktdl = 0;
 			for (int p = 0; p < bw-1; p++){
@@ -136,16 +219,15 @@ namespace _ALZ{
 				else
 					break;
 			}
-
 			if (aktdl > maksdl){
 				maksdl = aktdl;
 				pocz = k;
 			}
 		}
 
+		//Dopisanie znaku do trojki i jesli pusta, uzupelnienie reszty
 		char znak;
 		if (aktdl != 0){
-			
 			znak = wejscie[maksdl];
 		}
 		else{
@@ -154,19 +236,15 @@ namespace _ALZ{
 			aktdl = 0;
 		}
 
-
-
+		//Fizyczne tworzenie trojki i zwrot
 		Trojka* zwrot = new Trojka(znak, pocz, maksdl);
-	//	WypiszBufor();
-	//	cout << pocz << " " << maksdl << " " << znak << endl;
-
 		return zwrot;
 	}
 
 	void ALZ77::PrzesuniecieBufora(int przes){
 		przes++;
 
-		//Przesuwanie w buforach (s³ownik wejscie)
+		//Przesuwanie w buforach (s³ownik, wejscie)
 		int tmp,tmp2;
 		for (int k = 0; k < bw + bs;k++){
 			if (k < bs){	//slownik
@@ -207,6 +285,9 @@ namespace _ALZ{
 	}
 
 
+
+	//--------------------TROJKI--------------------------
+
 	string Trojka::wyswielt(){
 		string zwrot = "("; 
 		zwrot += (p + 48);
@@ -228,7 +309,6 @@ namespace _ALZ{
 		next = NULL;
 		
 	}
-
 
 }
 

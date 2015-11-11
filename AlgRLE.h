@@ -18,6 +18,7 @@ namespace _ARLE
 		~ARLE();
 		virtual string Koduj(string);
 		virtual string Dekoduj(string = "");
+		virtual void Clear(){ }
 	};
 }
 

@@ -10,3 +10,6 @@ string Koder::Dekoduj(string tresc = ""){
 
 	return "";
 }
+void Koder::Clear(){
+
+}

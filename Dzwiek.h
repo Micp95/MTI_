@@ -13,6 +13,8 @@ namespace _Dzwiek{
 	int PlatformaTestowaMichal();
 	int PlatformaTestowaKasia();
 	int PlatformaTestowaMarysia();
+
+
 }
 
 #endif

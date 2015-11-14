@@ -63,6 +63,9 @@
     <ClCompile Include="Dzwiek.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RAWFile.cpp">
+      <Filter>Source Files\Dzwiek</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spis.h">
@@ -97,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="Dzwiek.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RAWFile.h">
+      <Filter>Header Files\Dzwiek</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -66,6 +66,9 @@
     <ClCompile Include="RAWFile.cpp">
       <Filter>Source Files\Dzwiek</Filter>
     </ClCompile>
+    <ClCompile Include="Kwantyzacja.cpp">
+      <Filter>Source Files\Dzwiek</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spis.h">
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RAWFile.h">
+      <Filter>Header Files\Dzwiek</Filter>
+    </ClInclude>
+    <ClInclude Include="Kwantyzacja.h">
       <Filter>Header Files\Dzwiek</Filter>
     </ClInclude>
   </ItemGroup>

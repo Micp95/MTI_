@@ -21,6 +21,7 @@ public:
 
 	typ* Wczytaj(string nazwa);
 	void Zapis(string nazwa, typ* inne = NULL, long size = 0);
+	void ZapisZakres(string nazwa, typ* inne = NULL, long size = 0);
 	long GetSize(){ return size; }
 
 private:
@@ -28,7 +29,7 @@ private:
 	long size;
 };
 
-
+//Klasa szablonowa - sposob pozwalajacy rozdzielenie deklaracji od definicji
 #include "RAWFile.cpp"
 
 #endif

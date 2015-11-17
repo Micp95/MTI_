@@ -15,8 +15,6 @@ namespace _Dzwiek{
 	int PlatformaTestowaMarysia();
 
 
-	void KwantyzacjaProba(string nazwa, int pprob, int prob, int kwant);
-
 }
 
 #endif

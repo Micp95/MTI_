@@ -69,6 +69,18 @@
     <ClCompile Include="Kwantyzacja.cpp">
       <Filter>Source Files\Dzwiek</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Audio.cpp">
+      <Filter>Source Files\Dzwiek</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Complex.cpp">
+      <Filter>Source Files\Dzwiek</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\DFT.cpp">
+      <Filter>Source Files\Dzwiek</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\FrequencyFilter.cpp">
+      <Filter>Source Files\Dzwiek</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spis.h">
@@ -108,6 +120,21 @@
       <Filter>Header Files\Dzwiek</Filter>
     </ClInclude>
     <ClInclude Include="Kwantyzacja.h">
+      <Filter>Header Files\Dzwiek</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Audio.h">
+      <Filter>Header Files\Dzwiek</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Complex.h">
+      <Filter>Header Files\Dzwiek</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\DFT.h">
+      <Filter>Header Files\Dzwiek</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\FrequencyFilter.h">
+      <Filter>Header Files\Dzwiek</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Global.h">
       <Filter>Header Files\Dzwiek</Filter>
     </ClInclude>
   </ItemGroup>

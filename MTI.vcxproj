@@ -27,7 +27,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -129,6 +129,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Audio.cpp" />
+    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Complex.cpp" />
+    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\DFT.cpp" />
+    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\FrequencyFilter.cpp" />
     <ClCompile Include="AlgHuff.cpp" />
     <ClCompile Include="AlgLZ.cpp" />
     <ClCompile Include="AlgRLE.cpp" />
@@ -145,6 +149,11 @@
     <ClCompile Include="StopWatch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Audio.h" />
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Complex.h" />
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\DFT.h" />
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\FrequencyFilter.h" />
+    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Global.h" />
     <ClInclude Include="AlgHuff.h" />
     <ClInclude Include="AlgLZ.h" />
     <ClInclude Include="AlgRLE.h" />

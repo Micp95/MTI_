@@ -11,8 +11,8 @@ namespace _Camouflage
 	public:
 		ACamo();
 		~ACamo();
-		RAWFile<float> MaskFreq(float);
-		RAWFile<float> MaskTime(float);
+		RAWFile<float> MaskFreq(float,float);
+		RAWFile<float> MaskTime(float, float);
 	};
 	
 }

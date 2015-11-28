@@ -130,7 +130,11 @@ int _Dzwiek::PlatformaTestowaMarysia(){
 int _Dzwiek::PlatformaTestowaKasia(){
 
 	ACamo cm1;
-	cm1.MaskTime(0.01);
+	cout << "Przeprowadzenie maskowania w dziedzinie czasu! " << endl;
+	cm1.MaskTime(0.3,-0.3);
+	ACamo cm2;
+	cout << "Przeprowadzenie maskowania w dziedzinie czestotliwosci! " << endl;
+	cm2.MaskFreq(0.02, -0.02);
 
 	return 0;
 }

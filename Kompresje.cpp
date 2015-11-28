@@ -217,8 +217,26 @@ int _Kompresja::PlatformaTestowaOgolna(){
 	return 0;
 }
 
-int _Kompresja::PlatformaTestowaMichal(){
+void RastrigianFun()
+{
+	double x = 0;
+	int A = 10;
+	string wartosci = "";
+	double ForCos = 2 * 3.14* x;
+	for (double x = -5.12; x < 5.12; x += 0.001)
+	{
+		double fun = A + (x*x - A * cos(ForCos));
+		int temp = (int)fun;
+		temp += 32;
+		wartosci += (char)temp;
+	}
+	Zapis("_pliki\\Rastrigian.txt", wartosci);
 
+}
+
+int _Kompresja::PlatformaTestowaMichal(){
+	RastrigianFun();
+	cout <<"czas \t\t"<<WykonajAlgorytm(LZ77, "Rastrigian.txt", false, true)<<endl;
 
 	return 0;
 }

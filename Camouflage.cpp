@@ -23,7 +23,9 @@ namespace _Camouflage
 		float* binarny = (plik.Wczytaj("_pliki\\test.raw"));
 		float temp = 0;
 		
-		for (int i = 0; i < plik.size; i++)
+		long size = plik.GetSize();
+
+		for (int i = 0; i < size; i++)
 		{
 			temp = binarny[i] - binarny[i + 1];
 			if (temp < 0)
@@ -45,7 +47,8 @@ namespace _Camouflage
 			}
 		}
 	
-		for (int i = 0; i < plik.size; i++)
+		
+		for (int i = 0; i < size; i++)
 		{
 			do_wykresu << plik.dane[i] << endl;
 		}
@@ -60,7 +63,9 @@ namespace _Camouflage
 		RAWFile<float> plik;
 		float* binarny = (plik.Wczytaj("_pliki\\test.raw"));
 		float temp = 0;
-		for (int i = 0; i < plik.size; i++)
+		long size = plik.GetSize();
+
+		for (int i = 0; i < size; i++)
 		{
 			if (binarny[i] < 0)
 			{
@@ -89,7 +94,7 @@ namespace _Camouflage
 			}
 			
 		}
-		for (int i = 0; i < plik.size; i++)
+		for (int i = 0; i < size; i++)
 		{
 			do_wykresu << plik.dane[i] << endl;
 		}

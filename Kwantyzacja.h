@@ -39,7 +39,7 @@ private:
 	template <class typ>
 	typ PolowaZakresu(typ* dane, long zakres);
 	
-	int proba;
+	double proba;
 	int kwanty;
 	double krok;
 };
@@ -63,8 +63,8 @@ wektor<typ> Kwantyzacja::kwantuj(typ* dane, long ilosc){
 
 
 	for (long k = 0; k < size; k ++){
-		zwrot.A[k] = dane[k*proba];						//Przechowanie oryginalu
-		zwrot.B[k] = Przydziel(dane[k*proba] + pol);	//Zapis kwantu
+		zwrot.A[k] = dane[k*(int)proba];						//Przechowanie oryginalu
+		zwrot.B[k] = Przydziel(dane[k*(int)proba] + pol);	//Zapis kwantu
 	}
 
 	return zwrot;

@@ -50,7 +50,7 @@ namespace _MAIN{
 		else
 			plik.open(nazwa.c_str(), ios::out | ios::trunc);
 
-		char *bufor = new char[1024];
+	//	char *bufor = new char[1024];
 		if (plik.good() == true)
 		{
 			if (!bin)
@@ -69,7 +69,7 @@ namespace _MAIN{
 
 		}
 
-		delete[] bufor;
+//		delete[] bufor;
 		plik.close();
 	}
 

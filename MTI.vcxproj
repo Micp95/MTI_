@@ -129,16 +129,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Audio.cpp" />
-    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Complex.cpp" />
-    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\DFT.cpp" />
-    <ClCompile Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\FrequencyFilter.cpp" />
     <ClCompile Include="AlgHuff.cpp" />
     <ClCompile Include="AlgLZ.cpp" />
     <ClCompile Include="AlgRLE.cpp" />
     <ClCompile Include="AlgRoznicowy.cpp" />
+    <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="Camouflage.cpp" />
+    <ClCompile Include="Complex.cpp" />
+    <ClCompile Include="DFT.cpp" />
     <ClCompile Include="Dzwiek.cpp" />
     <ClCompile Include="Entropy.cpp" />
+    <ClCompile Include="FrequencyFilter.cpp" />
     <ClCompile Include="HuffDrzewo.cpp" />
     <ClCompile Include="Koder.cpp" />
     <ClCompile Include="Kompresje.cpp" />
@@ -146,25 +147,28 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainFun.cpp" />
     <ClCompile Include="RAWFile.cpp" />
+    <ClCompile Include="Siec.cpp" />
     <ClCompile Include="StopWatch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Audio.h" />
-    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Complex.h" />
-    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\DFT.h" />
-    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\FrequencyFilter.h" />
-    <ClInclude Include="..\..\Documents\Visual Studio 2015\Projects\MTI_sound\MTI_sound\Global.h" />
     <ClInclude Include="AlgHuff.h" />
     <ClInclude Include="AlgLZ.h" />
     <ClInclude Include="AlgRLE.h" />
     <ClInclude Include="AlgRoznicowy.h" />
+    <ClInclude Include="Audio.h" />
+    <ClInclude Include="Camouflage.h" />
+    <ClInclude Include="Complex.h" />
+    <ClInclude Include="DFT.h" />
     <ClInclude Include="Dzwiek.h" />
     <ClInclude Include="Entropy.h" />
+    <ClInclude Include="FrequencyFilter.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="HuffDrzewo.h" />
     <ClInclude Include="Koder.h" />
     <ClInclude Include="Kompresje.h" />
     <ClInclude Include="Kwantyzacja.h" />
     <ClInclude Include="RAWFile.h" />
+    <ClInclude Include="Siec.h" />
     <ClInclude Include="Spis.h" />
     <ClInclude Include="StopWatch.h" />
   </ItemGroup>

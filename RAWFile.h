@@ -24,8 +24,8 @@ public:
 	void ZapisZakres(string nazwa, typ* inne = NULL, long size = 0);
 	long GetSize(){ return size; }
 
-private:
 	typ* dane;
+private:
 	long size;
 };
 

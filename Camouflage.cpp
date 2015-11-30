@@ -15,7 +15,7 @@ namespace _Camouflage
 	{
 
 	}
-	RAWFile<float> ACamo::MaskFreq(float roz)
+	RAWFile<float> ACamo::MaskFreq(float max,float min)
 	{
 		fstream do_wykresu;
 		do_wykresu.open("_pliki\\dane.txt", ios::out);
@@ -23,77 +23,74 @@ namespace _Camouflage
 		float* binarny = (plik.Wczytaj("_pliki\\test.raw"));
 		float temp = 0;
 		
-		for (int i = 0; i < plik.size; i++)
+		long size = plik.GetSize();
+
+		for (int i = 0; i < size; i++)
 		{
-			temp = binarny[i] - binarny[i + 1];
-			if (temp < 0)
+			if ((binarny[i] < max && binarny[i] > 0) ||( binarny[i] > min && binarny[i] < 0))
 			{
-				temp *= -1;
-			}
-			if (temp > roz)
-			{
-				if (binarny[i] > binarny[i + 1])
+				for (int j = 0; j < 30; j++)
 				{
-					binarny[i] -= roz / 3;
-					binarny[i + 1] += roz / 3;
-				}
-				else
-				{
-					binarny[i + 1] -= roz / 3;
-					binarny[i] += roz / 3;
+					if (i + j < size) binarny[i + j] = 0;
+					if (i - j > 0) binarny[i - j] = 0;
 				}
 			}
+			
 		}
 	
-		for (int i = 0; i < plik.size; i++)
+		
+		for (int i = 0; i < size; i++)
 		{
 			do_wykresu << plik.dane[i] << endl;
 		}
-		plik.Zapis("_pliki\\test2.raw");
+		plik.Zapis("_pliki\\przerobionyFreq.raw");
 		return plik;
 	}
 
-	RAWFile<float> ACamo::MaskTime(float prog)
+	RAWFile<float> ACamo::MaskTime(float max, float min)
 	{
 		fstream do_wykresu;
 		do_wykresu.open("_pliki\\dane.txt", ios::out);
 		RAWFile<float> plik;
 		float* binarny = (plik.Wczytaj("_pliki\\test.raw"));
 		float temp = 0;
-		for (int i = 0; i < plik.size; i++)
+		long size = plik.GetSize();
+		float freq = 44100;
+		float timeMask = freq * 0.001;
+
+		for (int i = 0; i < size; i++)
 		{
-			if (binarny[i] < 0)
+			if ((binarny[i] > max && binarny[i] > 0) || (binarny[i] < min && binarny[i] < 0)) 
 			{
-				if (-1 * binarny[i] >= prog)
+				for (int j = 0; j < timeMask * 15; j++) //Maskowanie w przod
 				{
-					temp = binarny[i];
+					if ((binarny[i + j] < max && binarny[i + j] > 0) || (binarny[i + j] > min && binarny[i + j] < 0))
+					{
+						if ((i + j) < size)
+						{
+							binarny[i + j] = binarny[i + j] /4;
+							
+						}
+					}
 				}
-				else if(-1 * binarny[i] < prog)
+				for (int j = 0; j < timeMask * 2; j++) //Maskowanie w tyl
 				{
-					binarny[i] += temp / 3;
-					if (binarny[i] > 0) binarny[i] = 0;
-				}
-			}
-			else
-			{
-				if (binarny[i] >= prog)
-				{
-					temp = binarny[i];
-				}
-				else if (binarny[i] == 0);
-				else if (binarny[i] < prog)
-				{
-					binarny[i] -= temp / 3;
-					if (binarny[i] < 0) binarny[i] = 0;
+					if ((binarny[i - j] < max && binarny[i - j] > 0) || (binarny[i - j] > min && binarny[i - j] < 0)) //sprawdzenie czy kolejna probka miesci sie w wymogu
+					{
+						if ((i - j) > 0) 
+						{ 
+							binarny[i - j] = binarny[i - j] / 4;
+						}
+					}
 				}
 			}
 			
 		}
-		for (int i = 0; i < plik.size; i++)
+		for (int i = 0; i < size; i++)
 		{
 			do_wykresu << plik.dane[i] << endl;
 		}
-		plik.Zapis("_pliki\\test2.raw");
+		plik.Zapis("_pliki\\przerobionyTime.raw");
 		return plik;
 	}
 }

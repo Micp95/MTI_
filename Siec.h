@@ -1,12 +1,12 @@
-#ifndef DZWIEK_H
-#define DZWIEK_H
+#ifndef SIEC_H
+#define SIEC_H
 
 #include "Spis.h"
 
 using namespace std;
 
 
-namespace _Dzwiek{
+namespace _Siec{
 
 	int PlatformaTestowaOgolna();
 
@@ -14,7 +14,6 @@ namespace _Dzwiek{
 	int PlatformaTestowaKasia();
 	int PlatformaTestowaMarysia();
 
-	void KwantyzacjaProba(string nazwa, int pprob, int prob, int kwant, bool zapis);
 }
 
 #endif

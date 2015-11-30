@@ -17,6 +17,10 @@
 #include"Global.h"
 #include "Printer.h"
 
+#include <time.h>
+#include <cstdlib>
+#include "Kwantyzacja.h"
+
 
 using namespace std;
 using namespace _MAIN;
@@ -36,11 +40,35 @@ int _Dzwiek::PlatformaTestowaOgolna(){
 
 
 int _Dzwiek::PlatformaTestowaMichal(){
-	RAWFile<float> plik;
-	float* binarny = plik.Wczytaj("_audio\\02.snd");
-	cout << plik.GetSize()<<endl;
-	plik.Zapis("_audio\\03.snd");
+	srand(time(NULL));
+	/*
+	cout << "Przeprowadzenie proby kwantyzacji:\n\n";
+	cout << "\n\n\n\t\t------\n\n\n";
+	cout << "Przeprowadzenie proby kwantyzacji:\n\n";
+	cout << "\n\n\n\t\t------\n\n\n";
+	KwantyzacjaProba("_audio\\07.raw", 44100, 44100, 1000);
+	KwantyzacjaProba("_audio\\07.raw", 44100, 44100, 256);
+	KwantyzacjaProba("_audio\\07.raw", 44100, 44100, 100);
+	*/
 
+	KwantyzacjaProba("_audio\\07.raw", 44100, 44100, 100, true);
+
+	/*
+
+	cout << "Przeprowadzenie proby kwantyzacji:\n\n";
+	cout << "\n\n\n\t\t------\n\n\n";
+	KwantyzacjaProba("_audio\\07.raw", 44100, 22050, 1000);
+	KwantyzacjaProba("_audio\\07.raw", 44100, 22050, 256);
+	KwantyzacjaProba("_audio\\07.raw", 44100, 22050, 100);
+	cout << "\n\n\n\t\t------\n\n\n";
+	KwantyzacjaProba("_audio\\07.raw", 44100, 11025, 1000);
+	KwantyzacjaProba("_audio\\07.raw", 44100, 11025, 256);
+	KwantyzacjaProba("_audio\\07.raw", 44100, 11025, 100);
+	cout << "\n\n\n\t\t------\n\n\n";
+	KwantyzacjaProba("_audio\\07.raw", 44100, 5500, 1000);
+	KwantyzacjaProba("_audio\\07.raw", 44100, 5500, 256);
+	KwantyzacjaProba("_audio\\07.raw", 44100, 5500, 100);
+	*/
 
 	return 0;
 }
@@ -76,9 +104,32 @@ int _Dzwiek::PlatformaTestowaMarysia(){
 
 int _Dzwiek::PlatformaTestowaKasia(){
 
-//	ACamo cm1;
-//	cm1.MaskTime(0.01);
+	ACamo cm1;
+	cout << "Przeprowadzenie maskowania w dziedzinie czasu! " << endl;
+	cm1.MaskTime(0.3,-0.3);
+	ACamo cm2;
+	cout << "Przeprowadzenie maskowania w dziedzinie czestotliwosci! " << endl;
+	cm2.MaskFreq(0.02, -0.02);
 
 	return 0;
 }
 
+
+void _Dzwiek::KwantyzacjaProba(string nazwa, int pprob, int prob, int kwant, bool zapis){
+	RAWFile<float> plik;
+	float* binarny = plik.Wczytaj(nazwa);
+
+	Kwantyzacja koder(pprob, prob, kwant);
+	wektor<float> zwrot = koder.kwantuj(binarny, plik.GetSize());
+
+	float* odkodowane = koder.OdkodujZakres(zwrot.B, zwrot.size, float(0));
+
+	cout << "Dla pliku:\t" << nazwa << endl
+		<< "\tProbkowanie pliku:\t" << pprob << endl
+		<< "\tProbkowanie wyjsciowe:\t" << prob << endl
+		<< "\tIlosc progow kwantyzacji:\t" << kwant << endl;
+	cout << "\n\t\tSzum kwantyzacji wyniosl:\t" << koder.SzumKwantyzacji(zwrot.A, odkodowane, zwrot.size) << endl;
+
+	if (zapis)
+		plik.Zapis(nazwa + "l", odkodowane, zwrot.size);
+}

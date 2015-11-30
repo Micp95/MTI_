@@ -11,6 +11,7 @@ enum koder{
 };
 	
 namespace _MAIN{
+
 	string Wczytaj(string nazwa, bool bin = false);
 	void Zapis(string nazwa, string tekst, bool bin = false);
 

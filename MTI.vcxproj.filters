@@ -93,6 +93,9 @@
     <ClCompile Include="Siec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Printer.cpp">
+      <Filter>Source Files\Dzwiek</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spis.h">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Siec.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Printer.h">
+      <Filter>Header Files\Dzwiek</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

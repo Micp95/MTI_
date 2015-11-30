@@ -146,6 +146,7 @@
     <ClCompile Include="Kwantyzacja.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainFun.cpp" />
+    <ClCompile Include="Printer.cpp" />
     <ClCompile Include="RAWFile.cpp" />
     <ClCompile Include="Siec.cpp" />
     <ClCompile Include="StopWatch.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Koder.h" />
     <ClInclude Include="Kompresje.h" />
     <ClInclude Include="Kwantyzacja.h" />
+    <ClInclude Include="Printer.h" />
     <ClInclude Include="RAWFile.h" />
     <ClInclude Include="Siec.h" />
     <ClInclude Include="Spis.h" />

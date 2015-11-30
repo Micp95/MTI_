@@ -8,7 +8,8 @@
 
 #include "Spis.h"
 
-
+#include "TCPClient.h"
+#include "TCPServer.h"
 
 
 using namespace std;
@@ -38,6 +39,10 @@ int _Siec::PlatformaTestowaMarysia(){
 
 int _Siec::PlatformaTestowaKasia(){
 
+	cout << "Siec!" << endl;
+	//TCPServer server("192.168.1.5", 54345);
+	TCPClient client("192.168.1.5", 54345);
+	
 	return 0;
 }
 

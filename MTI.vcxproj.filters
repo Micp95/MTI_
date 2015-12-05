@@ -96,6 +96,33 @@
     <ClCompile Include="Printer.cpp">
       <Filter>Source Files\Dzwiek</Filter>
     </ClCompile>
+    <ClCompile Include="TCPClient.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPServer.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="CoderMP3.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="ComProtocol.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="ComProtocolListen.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="ComProtocolSend.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="MP3Transmition.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="Switchgear.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="lame\lameHelper.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spis.h">
@@ -160,6 +187,36 @@
     </ClInclude>
     <ClInclude Include="Printer.h">
       <Filter>Header Files\Dzwiek</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPClient.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPServer.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="Switchgear.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="CoderMP3.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="ComProtocol.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="ComProtocolListen.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="ComProtocolSend.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="MP3Transmition.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="lame\lameHelper.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="lame\lame.h">
+      <Filter>Header Files\Siec</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

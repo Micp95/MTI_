@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <cstdint>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ namespace _MAIN{
 	char bin_to_dec(string& teks, int a, int b);
 	char bin_to_int(string& teks, int a, int b,bool sign);
 
+	uint64_t ActualTime();
 }
 
 

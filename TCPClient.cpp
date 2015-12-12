@@ -84,7 +84,10 @@ TCPClient::TCPClient(const char * ipAdress, int nport)
 		if (rc == SOCKET_ERROR)
 			cout << "error send " << WSAGetLastError << endl;
 		else
+		{
 			cout << rc << "bytes send " << endl;
+			break;
+		}
 
 	}
 
@@ -137,7 +140,7 @@ bool TCPClient::readfile(SOCKET sock, FILE *f)
 		char buffer[1024];
 		do
 		{
-			
+
 			int num = min(filesize, sizeof(buffer));
 			if (!readdata(sock, buffer, num))
 				return false;
@@ -154,6 +157,8 @@ bool TCPClient::readfile(SOCKET sock, FILE *f)
 		} while (filesize > 0);
 		stoper.Stop();
 	}
+	else
+		filesize = 0;
 	cout << "\n\nCzas: " << stoper.MilliSeconds() * 0.001 << " sekund" << endl;
 	cout << "Rozmiar pliku: " << fsize << endl;
 	cout << "Srednia predkosc: " << (fsize / (stoper.MilliSeconds() * 0.001)) / 1048576 << "MB/sec" << endl;

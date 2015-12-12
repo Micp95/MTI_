@@ -14,8 +14,6 @@ namespace _Siec{
 	int PlatformaTestowaKasia();
 	int PlatformaTestowaMarysia();
 
-
-	void PobieraniePlikuMP3(int port, string nazwa);
 }
 
 #endif

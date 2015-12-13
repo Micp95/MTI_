@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Siec">
       <UniqueIdentifier>{6d12a0bb-cd10-4d11-93e3-ecea9eb80534}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Obrazy">
+      <UniqueIdentifier>{8e5aeb25-598f-4141-8a6a-fc40f4bb7058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obrazy">
+      <UniqueIdentifier>{808391e6-b5dd-4d76-94e7-dd0215617c94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -122,6 +128,15 @@
     </ClCompile>
     <ClCompile Include="lame\lameHelper.cpp">
       <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="Obrazy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageConverter.cpp">
+      <Filter>Source Files\Obrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="PPMFile.cpp">
+      <Filter>Source Files\Obrazy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +232,15 @@
     </ClInclude>
     <ClInclude Include="lame\lame.h">
       <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="Obrazy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPMFile.h">
+      <Filter>Header Files\Obrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageConverter.h">
+      <Filter>Header Files\Obrazy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

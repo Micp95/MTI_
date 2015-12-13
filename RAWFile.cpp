@@ -28,7 +28,7 @@ RAWFile<typ>::~RAWFile()
 }
 
 template <class typ>
-typ* RAWFile<typ>::Wczytaj(string nazwa){
+typ* RAWFile<typ>::Wczytaj(string nazwa, int pomin) {
 
 	//Tworzenie zmiennych
 	FILE * pFile;
@@ -46,6 +46,10 @@ typ* RAWFile<typ>::Wczytaj(string nazwa){
 	lSize = ftell(pFile);
 	rewind(pFile);
 
+	//Przesuwanie wskaznika - pominiece np. naglowka
+	fseek(pFile, pomin, SEEK_SET);
+	lSize -= pomin;
+
 	lSize = lSize / sizeof(typ);		//przeliczenie rozmiaru pliku do wczytywanych danych
 
 	buffer = new typ[lSize];			//Tworzenie bufora danych
@@ -62,7 +66,7 @@ typ* RAWFile<typ>::Wczytaj(string nazwa){
 }
 
 template <class typ>
-void RAWFile<typ>::Zapis(string nazwa, typ* dane, long rozmiar){
+void RAWFile<typ>::Zapis(string nazwa, const typ* dane, long rozmiar){
 	if (dane == NULL){
 		dane = this->dane;
 		rozmiar = size;
@@ -76,6 +80,33 @@ void RAWFile<typ>::Zapis(string nazwa, typ* dane, long rozmiar){
 	fwrite(dane, sizeof(typ), rozmiar, pFile);
 	fclose(pFile);
 }
+
+
+//Zapis - operator
+
+template <class typ>
+fstream & operator <<(fstream & os, RAWFile<typ> & i) {
+	os << __TIMESTAMP__ << endl;
+	for (long k = 0; k < i.size; k++)
+		os << i.dane[k] << endl;
+	return os;
+}
+
+template <class typ>
+ostream & operator <<(ostream & os, RAWFile<typ> & i) {
+	os << "Plik: " << i.FileName << endl;
+	cout << "\tPierwsze 10 probek:" << endl;
+	for (long k = 0; k < 10; k++) {
+		os << "\t\t";
+
+		os.width(10);
+		os.fill('.');
+		os.precision(2);
+		os << i.dane[k] << endl;
+	}
+	return os;
+}
+
 
 
 template <class typ>

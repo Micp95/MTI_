@@ -13,6 +13,8 @@
 //Naglowki do konkretnych zadan
 #include "Kompresje.h"
 #include "Dzwiek.h"
+#include "Siec.h"
+#include "Obrazy.h"
 
 using namespace _MAIN;
 using namespace std;
@@ -21,7 +23,7 @@ using namespace std;
 
 int main()
 {
-	_Dzwiek::PlatformaTestowaOgolna();
+	_Obrazy::PlatformaTestowaOgolna();
 
 	system("pause");
 	return 0;

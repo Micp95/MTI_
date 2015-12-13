@@ -149,6 +149,7 @@
     <ClCompile Include="Entropy.cpp" />
     <ClCompile Include="FrequencyFilter.cpp" />
     <ClCompile Include="HuffDrzewo.cpp" />
+    <ClCompile Include="ImageConverter.cpp" />
     <ClCompile Include="Koder.cpp" />
     <ClCompile Include="Kompresje.cpp" />
     <ClCompile Include="Kwantyzacja.cpp" />
@@ -156,6 +157,8 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainFun.cpp" />
     <ClCompile Include="MP3Transmition.cpp" />
+    <ClCompile Include="Obrazy.cpp" />
+    <ClCompile Include="PPMFile.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="RAWFile.cpp" />
     <ClCompile Include="Siec.cpp" />
@@ -182,12 +185,15 @@
     <ClInclude Include="FrequencyFilter.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="HuffDrzewo.h" />
+    <ClInclude Include="ImageConverter.h" />
     <ClInclude Include="Koder.h" />
     <ClInclude Include="Kompresje.h" />
     <ClInclude Include="Kwantyzacja.h" />
     <ClInclude Include="lame\lame.h" />
     <ClInclude Include="lame\lameHelper.h" />
     <ClInclude Include="MP3Transmition.h" />
+    <ClInclude Include="Obrazy.h" />
+    <ClInclude Include="PPMFile.h" />
     <ClInclude Include="Printer.h" />
     <ClInclude Include="RAWFile.h" />
     <ClInclude Include="Siec.h" />

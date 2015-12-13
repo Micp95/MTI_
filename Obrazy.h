@@ -1,20 +1,24 @@
-#ifndef SIEC_H
-#define SIEC_H
+#pragma once
+#ifndef OBRAZY_H
+#define OBRAZY_H
 
 #include "Spis.h"
 #include <string>
 
+
 using namespace std;
 
 
-namespace _Siec{
+namespace _Obrazy {
 
 	int PlatformaTestowaOgolna();
 
 	int PlatformaTestowaMichal();
 	int PlatformaTestowaKasia();
 	int PlatformaTestowaMarysia();
-	void PobieraniePlikuMP3(int port, string nazwa);
+
+	void WykonajKonwersje(string name);
+	void PoliczRozmiary(string name);
 }
 
 #endif

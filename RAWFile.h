@@ -22,7 +22,7 @@ public:
 	typ* Wczytaj(string nazwa);
 	void Zapis(string nazwa, typ* inne = NULL, long size = 0);
 	void ZapisZakres(string nazwa, typ* inne = NULL, long size = 0);
-	long GetSize(){ return size; }
+	long GetSize() { return size; }
 
 	typ* dane;
 private:

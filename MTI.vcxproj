@@ -163,6 +163,8 @@
     <ClCompile Include="Switchgear.cpp" />
     <ClCompile Include="TCPClient.cpp" />
     <ClCompile Include="TCPServer.cpp" />
+    <ClCompile Include="UDP_client.cpp" />
+    <ClCompile Include="UDP_server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlgHuff.h" />
@@ -196,6 +198,8 @@
     <ClInclude Include="Switchgear.h" />
     <ClInclude Include="TCPClient.h" />
     <ClInclude Include="TCPServer.h" />
+    <ClInclude Include="UDP_client.h" />
+    <ClInclude Include="UDP_server.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

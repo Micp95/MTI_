@@ -3,7 +3,7 @@
 
 namespace Global {
 	const int toPrint = 0;
-	const int min = -10000000;
-	const int max = 100000000;
+	const int min = -50;
+	const int max = 50;
 }
 #endif

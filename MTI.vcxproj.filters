@@ -123,6 +123,12 @@
     <ClCompile Include="lame\lameHelper.cpp">
       <Filter>Source Files\Siec</Filter>
     </ClCompile>
+    <ClCompile Include="UDP_server.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="UDP_client.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spis.h">
@@ -216,6 +222,12 @@
       <Filter>Header Files\Siec</Filter>
     </ClInclude>
     <ClInclude Include="lame\lame.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="UDP_client.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="UDP_server.h">
       <Filter>Header Files\Siec</Filter>
     </ClInclude>
   </ItemGroup>

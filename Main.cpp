@@ -21,8 +21,8 @@ using namespace std;
 
 int main()
 {
-	_Dzwiek::PlatformaTestowaOgolna();
-
+	//_Dzwiek::PlatformaTestowaOgolna();
+	_Dzwiek::PlatformaTestowaMarysia();
 	system("pause");
 	return 0;
 }

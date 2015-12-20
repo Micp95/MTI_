@@ -28,7 +28,7 @@ RAWFile<typ>::~RAWFile()
 }
 
 template <class typ>
-typ* RAWFile<typ>::Wczytaj(string nazwa){
+typ* RAWFile<typ>::Wczytaj(string nazwa) {
 
 	//Tworzenie zmiennych
 	FILE * pFile;
@@ -51,7 +51,7 @@ typ* RAWFile<typ>::Wczytaj(string nazwa){
 	buffer = new typ[lSize];			//Tworzenie bufora danych
 	if (buffer == NULL) { return 0; }
 
-	result = fread(buffer,sizeof(typ), lSize, pFile);	//Wczytanie z pliku
+	result = fread(buffer, sizeof(typ), lSize, pFile);	//Wczytanie z pliku
 	if (result != lSize) { return 0; }					//Kontrola danych
 
 	size = lSize;
@@ -62,8 +62,8 @@ typ* RAWFile<typ>::Wczytaj(string nazwa){
 }
 
 template <class typ>
-void RAWFile<typ>::Zapis(string nazwa, typ* dane, long rozmiar){
-	if (dane == NULL){
+void RAWFile<typ>::Zapis(string nazwa, typ* dane, long rozmiar) {
+	if (dane == NULL) {
 		dane = this->dane;
 		rozmiar = size;
 	}
@@ -71,7 +71,7 @@ void RAWFile<typ>::Zapis(string nazwa, typ* dane, long rozmiar){
 	//Otworzenie pliku
 	FILE * pFile;
 	pFile = fopen(nazwa.c_str(), "wb");
-	
+
 	//Zapis
 	fwrite(dane, sizeof(typ), rozmiar, pFile);
 	fclose(pFile);
@@ -79,15 +79,15 @@ void RAWFile<typ>::Zapis(string nazwa, typ* dane, long rozmiar){
 
 
 template <class typ>
-void RAWFile<typ>::ZapisZakres(string nazwa, typ* inne, long rozmiar){
-	if (dane == NULL){
+void RAWFile<typ>::ZapisZakres(string nazwa, typ* inne, long rozmiar) {
+	if (dane == NULL) {
 		dane = this->dane;
 		rozmiar = size;
 	}
 
 	fstream plik;
 	plik.open(nazwa.c_str(), ios::out, ios::trunc);
-	if (plik.good()){
+	if (plik.good()) {
 		for (long k = 0; k < rozmiar; k++)
 			plik << inne[k] << endl;
 	}

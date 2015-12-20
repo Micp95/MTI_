@@ -15,7 +15,7 @@ public:
 	void Stop();
 
 	__int64 MilliSeconds() const;
-
+	float ActMiliSeconds() const;
 };
 
 #endif

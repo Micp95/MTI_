@@ -78,10 +78,13 @@ int _Dzwiek::PlatformaTestowaMarysia(){
 	/*	Tests tests;
 	tests.SelfTest();
 	*/
-	int size = get_file_size("C:\\Users\\Marysia\\Desktop\\looking1.wav");
+
+	RAWFile <short> rf;
+
+	int size = get_file_size("_pliki\\looking1.wav");
 	Wav_reader wr;
 	//	cout << "No of samples: " << wr.numberOfSamples;
-	short ** samplesTab = wr.read("C:\\Users\\Marysia\\Desktop\\looking1.wav", size);
+	short ** samplesTab = wr.read("_pliki\\looking1.wav", size);
 
 	FrequencyFilter ff;
 	short* afterFiltered = ff.Filter(samplesTab[0], wr.numberOfSamples, Global::min, Global::max);
@@ -91,13 +94,15 @@ int _Dzwiek::PlatformaTestowaMarysia(){
 
 	DFT d;
 	Complex * afterDft = d.CalculateDFT(afterFiltered, wr.numberOfSamples);
-	pr.PrintDataAfterDFT(afterDft, wr.numberOfSamples);
+//	pr.PrintDataAfterDFT(afterDft, wr.numberOfSamples);
 
 	//FrequencyFilter ff;
 	//Complex* afterDftAfterFiltered = ff.Filter(afterDft, wr.numberOfSamples, Global::min, Global::max);
 
-	//	short* result = d.CalculateIDFT(afterDft, wr.numberOfSamples);
+		short* result = d.CalculateIDFT(afterDft, wr.numberOfSamples);
 	//	pr.PrintDataAfterIDFT(result, wr.numberOfSamples);
+
+		rf.Zapis("look.raw", result, wr.numberOfSamples);
 
 	return 0;
 }

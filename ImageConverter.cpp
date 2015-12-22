@@ -93,7 +93,7 @@ ImageConverter::~ImageConverter(){
 }
 
 
-int ImageConverter::Convert(string input, string output) {
+int ImageConverter::Convert(string input, string output, int pam) {
 
 	int kropka = input.find_last_of('.');
 	string forminp = input.substr(kropka+1);
@@ -104,9 +104,9 @@ int ImageConverter::Convert(string input, string output) {
 		PPMFile plik(input);
 		plik.LoadFile();
 		PPMtoBMP(plik,output);
-	}
+	}		
 	else 
-		Conversion(input, output, "image/" + formout);
+		Conversion(input, output, "image/" + formout, pam);
 	
 	return 0;
 }
@@ -161,7 +161,7 @@ void ImageConverter::PPMtoBMP(PPMFile& file, string nowy) {
 }
 
 
-int ImageConverter::Conversion(string input, string output, string format) {
+int ImageConverter::Conversion(string input, string output, string format,int parm) {
 
 	wstring widestr = wstring(input.begin(), input.end());
 	const wchar_t* name1 = widestr.c_str();
@@ -180,17 +180,37 @@ int ImageConverter::Conversion(string input, string output, string format) {
 	CLSID   encoderClsid;
 	Status  stat;
 	Image*   image = new Image(name1);
-
-
+	
 	GetEncoderClsid(typ, &encoderClsid);
 
-	stat = image->Save(name2, &encoderClsid, NULL);
+	//cout << "Format:\t" << format << "\t\t";
+	//cout << encoderClsid.Data1 << " " << encoderClsid.Data2 << " " << encoderClsid.Data3 << " " << encoderClsid.Data4 << endl;
+	EncoderParameters parametr;
+
+
+	parametr.Count = 1;
+	parametr.Parameter[0].Guid = EncoderQuality;
+	parametr.Parameter[0].Type = EncoderParameterValueTypeLong;
+	parametr.Parameter[0].NumberOfValues = 1;
+
+	ULONG quality = parm;
+	parametr.Parameter[0].Value = &quality;
+
+
+	EncoderParameters* par = &parametr;
+
+	if (parm == 0)
+		par = NULL;
+
+	stat = image->Save(name2, &encoderClsid, par);
 
 	if (stat != Ok)
 		printf("Failure: stat = %d\n", stat);
 
 	delete image;
 	GdiplusShutdown(gdiplusToken);
+	/*
+*/
 
 	return 0;
 }

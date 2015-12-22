@@ -123,9 +123,6 @@
     <ClCompile Include="MP3Transmition.cpp">
       <Filter>Source Files\Siec</Filter>
     </ClCompile>
-    <ClCompile Include="Switchgear.cpp">
-      <Filter>Source Files\Siec</Filter>
-    </ClCompile>
     <ClCompile Include="lame\lameHelper.cpp">
       <Filter>Source Files\Siec</Filter>
     </ClCompile>
@@ -137,6 +134,18 @@
     </ClCompile>
     <ClCompile Include="PPMFile.cpp">
       <Filter>Source Files\Obrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="Switchgear.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="UDP_client.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="UDP_server.cpp">
+      <Filter>Source Files\Siec</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchgearClient.cpp">
+      <Filter>Source Files\Siec</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +250,15 @@
     </ClInclude>
     <ClInclude Include="ImageConverter.h">
       <Filter>Header Files\Obrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="UDP_client.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="UDP_server.h">
+      <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchgearClient.h">
+      <Filter>Header Files\Siec</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

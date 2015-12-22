@@ -8,11 +8,12 @@
 
 using namespace std;
 
-ComProtocolListen::ComProtocolListen(int port): ComProtocol("",port),buffer(0),bsize(0)
+ComProtocolListen::ComProtocolListen(int port, bool DD): ComProtocol("",port,DD),buffer(0),bsize(0)
 {
 	bsize = 1024;
 	buffer = new char[bsize];
 	new_fd = 0;
+	firsl = true;
 }
 
 ComProtocolListen::~ComProtocolListen()
@@ -26,11 +27,12 @@ ComProtocolListen::~ComProtocolListen()
 Package* ComProtocolListen::Listen()
 {
 	//Package ret;
+	disconet = false;
 
 	if (err != 0) {
 		Package* ret = new Package();
 		ret->err = err;
-		return 0;
+		return ret;
 	}
 	string acum,tmp,kod,war="END";
 	int size;
@@ -42,8 +44,10 @@ Package* ComProtocolListen::Listen()
 			ret2->err = err;
 			return ret2;
 		}
-		else if (!size)
+		else if (!size) {
+			disconet = true;
 			break;
+		}
 
 		tmp =  string(buffer, size);
 		kod = tmp.substr(size - 3);
@@ -58,20 +62,42 @@ Package* ComProtocolListen::Listen()
 	
 	//ret.size = size;
 	//ret.buff = buffer;
-
-	Disconection();
+	if (!DontDisconetion)
+		Disconection();
 	Package* ret = Division(acum);
 
 	return ret;
+}
+void ComProtocolListen::ClearPort() {
+	stats = 1;
+	sockaddr_in tmp = their_addr;
+	int tmp2 = new_fd;
+
+
+
+	while (true ) {
+		Connection();
+		if (stats == 2)
+			break;
+	}
+	their_addr = tmp;
+	new_fd = tmp2;
 }
 
 void ComProtocolListen::Connection()
 {
 	int sin_size;
+	int nnew_fd;
+	new_fd = 0;
 
-	if (bind(sockfd, (sockaddr *)& my_addr, sizeof(sockaddr)) == -1) {
-		err = 3;
-		return;
+ 	if (firsl) {
+		if (bind(sockfd, (sockaddr *)& my_addr, sizeof(sockaddr)) == -1) {
+			err = 3;
+			stats = 2;
+			return;
+		}
+
+
 	}
 
 
@@ -83,11 +109,18 @@ void ComProtocolListen::Connection()
 	}
 
 	sin_size = sizeof(sockaddr_in);
-	new_fd = accept(sockfd, (sockaddr *)& their_addr, &sin_size);
+	nnew_fd = accept(sockfd, (sockaddr *)& their_addr, &sin_size);
+	stats = 1;
+
 	if (new_fd == -1) {
 		err = 5;
 		return;
 	}
+	else if (nnew_fd != new_fd)
+		new_fd = nnew_fd;
+
+	//closesocket(sockfd);
+	firsl = false;
 }
 
 void ComProtocolListen::Disconection()
@@ -147,11 +180,12 @@ Package * ComProtocolListen::Division(string & buff)
 	}
 
 	wsk = &lista;
-	Package* ret = new Package[listleng];
+	Package* ret = new Package[listleng+1];
 	for (int k = 0; k < listleng; k++) {
 		ret[k] = *wsk->acum;
 		wsk = wsk->next;
 	}
+
 	//ret[listleng] = *(new Package);
 	return ret;
 }

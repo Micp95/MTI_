@@ -15,6 +15,7 @@ public:
 	bool Accept();
 	void setClient(SOCKET c) { client = c; };
 	SOCKET getClient() { return client; };
+	void filetoSend(char *);
 	bool Recieve();
 	bool Send();
 	void Close();

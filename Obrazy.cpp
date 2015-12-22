@@ -21,7 +21,6 @@ int _Obrazy::PlatformaTestowaOgolna() {
 
 int _Obrazy::PlatformaTestowaMichal() {
 
-	/*
 	PPMFile plik("_pliki\\fgd.ppm");
 	plik.LoadFile();
 
@@ -31,6 +30,14 @@ int _Obrazy::PlatformaTestowaMichal() {
 		plik.GetPixel(k, k).Set(0, 255, 0);//G
 		plik.GetPixel(k+1, k).Set(0, 0, 255);//R
 	}
+	plik.SaveFile("_pliki\\fgddd.ppm");
+
+	ImageConverter konwertor;
+
+	konwertor.Convert("_pliki\\fgddd.ppm", "_pliki\\fgddd.bmp");
+	konwertor.Convert("_pliki\\fgddd.bmp", "_pliki\\fgddd.png");
+
+	/*
 
 	for (int k = 0; k < plik.high; k++) {
 		plik.GetPixel(100, k).Set(255, 0, 0);//R
@@ -50,7 +57,6 @@ int _Obrazy::PlatformaTestowaMichal() {
 		plik.GetPixel(k, 200).Set(255, 0, 0);//R
 	}
 
-	plik.SaveFile("_pliki\\nowy1.ppm");
 	*/
 
 	WykonajKonwersje("_pliki\\fgd.ppm");
@@ -81,10 +87,20 @@ void _Obrazy::WykonajKonwersje(string name) {
 	name = name.substr(0,kropka+1);
 
 	konwertor.Convert(name + "ppm", name + "bmp");
-	konwertor.Convert(name + "bmp", name + "jpeg");
+	konwertor.Convert(name + "bmp", name + "jpeg",90);
+
+	/*
+	konwertor.Convert(name + "bmp", name + "jpeg" + "_50" ,50);
+	konwertor.Convert(name + "bmp", name + "jpeg" + "_75",75);
+	konwertor.Convert(name + "bmp", name + "jpeg" + "_90",90);
+
+	*/
+
 	konwertor.Convert(name + "bmp", name + "gif");
-	konwertor.Convert(name + "bmp", name + "tiff");
-	konwertor.Convert(name + "bmp", name + "png");
+	konwertor.Convert(name + "bmp", name + "tiff",1);
+	konwertor.Convert(name + "bmp", name + "png",2);
+
+
 
 }
 

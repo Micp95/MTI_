@@ -16,11 +16,14 @@ using namespace std;
 class ComProtocolSend: public ComProtocol
 {
 public:
-	ComProtocolSend(int port, string ip);
+	ComProtocolSend(int port, string ip,bool DD = false);
 	~ComProtocolSend();
 
 	virtual void Connection();
-	virtual void Disconection() {}
+	virtual void Disconection() {
+		if (sockfd)
+			closesocket(sockfd);
+	}
 	int Send(const char* buffer, long size);
 
 	void WaitForSendingAndEnding();
@@ -33,6 +36,8 @@ private:
 	void Coppy(char*A,const char*B, long startA,long startB, long size);
 	int SendPackage(Package*newpack);
 	uint16_t countPack;
+
+
 };
 
 

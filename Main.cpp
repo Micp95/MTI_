@@ -26,6 +26,7 @@ int main()
 	_Obrazy::PlatformaTestowaOgolna();
 
 	system("pause");
+
 	return 0;
 }
 

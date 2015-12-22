@@ -12,6 +12,12 @@
 using namespace std;
 FILE *f = fopen("_pliki\\Tomsiator 2015.rar", "rb");
 
+void TCPServer::filetoSend(char * name)
+{
+	FILE *file = fopen(name, "rb");
+	f = file;
+}
+
 bool TCPServer::Start()
 {
 	WSADATA WSA;

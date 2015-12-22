@@ -16,7 +16,8 @@
 #include "ComProtocolSend.h"
 #include "RAWFile.h"
 #include "MP3Transmition.h"
-
+#include "Switchgear.h"
+#include "SwitchgearClient.h"
 
 
 using namespace std;
@@ -36,20 +37,34 @@ int _Siec::PlatformaTestowaOgolna(){
 
 
 int _Siec::PlatformaTestowaMichal(){
-
-	cout << "1.Sluchanie\n2.Wysylanie\n\n";
+	
+	cout << "1.Server\n2.Client\n\n";
 	int k;
 	cin >> k;
+
+
+
+	if (k == 1) {
+		Switchgear baza(3432);
+		baza.Server(10);
+	}
+	else {
+		SwitchgearClient kbaza(3432);
+	//	kbaza.Client("192.168.215.20");
+		kbaza.Client("169.254.21.220");
+	}
+	/*
 
 	if (k == 1)
 		PobieraniePlikuMP3(4314, "porn.mp3");
 	else
 	{
 		//192.168.215.20
-		MP3Trasmition strumien("porn.pcm", "10.22.115.61", 4314);
+		MP3Trasmition strumien("porn.pcm", "192.168.215.20", 4314);
 		strumien.Transmition();
 		cout << "Poszlo" << endl;
 	}
+	*/
 
 	return 0;
 }

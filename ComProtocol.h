@@ -7,6 +7,7 @@
 #include <winsock.h> 
 #include <cstdint>
 #include "Switchgear.h"
+#include "SwitchgearClient.h"
 
 using namespace std;
 
@@ -40,7 +41,7 @@ class ComProtocol
 {
 public:
 	ComProtocol();
-	ComProtocol(string ip, int port);
+	ComProtocol(string ip, int port, bool DD = false);
 	~ComProtocol();
 
 	//int Send(char* buffer, long size);
@@ -58,10 +59,12 @@ protected:
 
 
 	int err;
+	bool DontDisconetion;
 private:
 	static int strums;
 
 	friend Switchgear;
+	friend SwitchgearClient;
 };
 
 

@@ -14,8 +14,9 @@ ComProtocol::ComProtocol()
 	Constr("", 0);
 }
 
-ComProtocol::ComProtocol(string ip, int port)
+ComProtocol::ComProtocol(string ip, int port, bool DD)
 {
+	DontDisconetion = DD;
 	Constr(ip, port);
 }
 

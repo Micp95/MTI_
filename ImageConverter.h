@@ -20,7 +20,7 @@ class ImageConverter
 public:
 	ImageConverter();
 	~ImageConverter();
-	int Convert(string input, string output);
+	int Convert(string input, string output, int pam = 0);
 
 private:
 	void PPMtoBMP(PPMFile& file, string nowy);
@@ -32,7 +32,7 @@ private:
 	int GetEncoderClsid(const WCHAR* format, CLSID* pClsid);
 
 
-	int Conversion(string input, string output,string format);
+	int Conversion(string input, string output,string format, int parm = 0);
 };
 
 

@@ -11,7 +11,7 @@
 using namespace _MAIN;
 using namespace std;
 
-ComProtocolSend::ComProtocolSend(int port, string ip):ComProtocol(ip, port)
+ComProtocolSend::ComProtocolSend(int port, string ip,bool DD):ComProtocol(ip, port,DD)
 {
 
 }
@@ -44,6 +44,13 @@ int ComProtocolSend::Send(const char * buffer, long size)
 			cout << "Paczka:\t" << k << "\tnie dotarla!" << endl;
 	}
 
+	if (DontDisconetion) {
+		Package* last = new Package;
+		last->buff = "END";
+		last->size = 3;
+
+		SendPackage(last);
+	}
 
 
 	return 0;

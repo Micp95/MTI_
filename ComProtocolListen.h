@@ -14,23 +14,31 @@ using namespace std;
 class ComProtocolListen: public ComProtocol
 {
 public:
-	ComProtocolListen(int port);
+	ComProtocolListen(int port,bool DD = false);
 	~ComProtocolListen();
 
 	Package* Listen();
 	virtual void Connection();
 	virtual void Disconection();
 
+	void ClearPort();
+
 
 	Package* Division(string& buff);
 	sockaddr_in their_addr;		// informacja o adresie osoby ³¹cz¹cej siê
+	int new_fd;					//Dystrybutor gniazda nowego polaczenia
+
+	bool disconet;
+
+	void SetErr(int e) { err = e; }
 private:
 	char* buffer;
 	long bsize;
 
-	int new_fd;					//Dystrybutor gniazda nowego polaczenia
 
+	int stats;
 
+	bool firsl;
 
 };
 

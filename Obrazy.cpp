@@ -6,6 +6,8 @@
 #include "RAWFile.h"
 #include "PPMFile.h"
 #include "ImageConverter.h"
+#include "ImageScale.h"
+#include "QualityCheck.h"
 
 using namespace std;
 using namespace _Obrazy;
@@ -66,9 +68,23 @@ int _Obrazy::PlatformaTestowaMichal() {
 }
 
 
-int _Obrazy::PlatformaTestowaKasia() {
+int _Obrazy::PlatformaTestowaKasia() 
+{
+	cout << "KONWERSJA DO SKALI SZAROSCI!" << endl;
+	ConvertToGrey plik("obraz.ppm"); // konwersja do skali szarosci
 
+	cout << "KONWERSJA DO CZERNI I BIELI!" << endl;
+	ConvertToBaW plik2("obraz.ppm"); // konwersja do czerni i bieli
+	
 
+	cout << "\nSprawdzanie dla tiff" << endl;
+	CheckQuality check1("obrazek.ppm", "obrazek.tif");
+	cout << "\nSprawdzanie dla png" << endl;
+	CheckQuality check2("obrazek.ppm", "obrazek.png");
+	cout << "\nSprawdzanie dla jpg" << endl;
+	CheckQuality check3("obrazek.ppm", "obrazek.jpg");
+	cout << "\nSprawdzanie dla gif" << endl;
+	CheckQuality check4("obrazek.ppm", "obrazek.gif");
 	return 0;
 }
 

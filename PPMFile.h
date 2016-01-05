@@ -29,10 +29,33 @@ struct Pixel {
 	}
 };
 
+struct PixelOnFloats {
+	float* U, *Y, *V;
+	
+	PixelOnFloats(){
+		U = new float;
+		Y = new float;
+		V = new float;
+	}
+	PixelOnFloats(float*r, float*g, float*b) :U(r), Y(g), V(b) {}
+	void Set(float r, float g, float b) {
+		if (U == 0)
+			return;
+		*U = r;
+		*Y = g;
+		*V = b;
+	}
+	void Sets(float* B_, float* G_, float* R_) {
+		U = B_;
+		Y = G_;
+		V = R_;
+	}
+};
 
 class PPMFile
 {
 public:
+	
 	PPMFile(string name);
 	~PPMFile();
 
@@ -46,24 +69,20 @@ public:
 	int high;
 	int max;
 	void* Transform();
+
 private:
+
 	Pixel BadPixel;
-
 	string FIleName;
-
 	char* date;
-	long size;
-
 	Pixel** arrs;
-
-
+	long size;
+	
 	int LoadHeader(fstream& file);
 	int LoadDate(int lhead);
 	string CreateHeader();
 	void CreateArrs();
-
-
-
+	
 	int err;
 };
 

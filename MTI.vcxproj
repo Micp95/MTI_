@@ -162,6 +162,8 @@
     <ClCompile Include="PPMFile.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="RAWFile.cpp" />
+    <ClCompile Include="ReductionAmountOfColours.cpp" />
+    <ClCompile Include="ReductionChrominanceChannels.cpp" />
     <ClCompile Include="Siec.cpp" />
     <ClCompile Include="StopWatch.cpp" />
     <ClCompile Include="Switchgear.cpp" />
@@ -200,6 +202,8 @@
     <ClInclude Include="PPMFile.h" />
     <ClInclude Include="Printer.h" />
     <ClInclude Include="RAWFile.h" />
+    <ClInclude Include="ReductionAmountOfColours.h" />
+    <ClInclude Include="ReductionChrominanceChannels.h" />
     <ClInclude Include="Siec.h" />
     <ClInclude Include="Spis.h" />
     <ClInclude Include="StopWatch.h" />

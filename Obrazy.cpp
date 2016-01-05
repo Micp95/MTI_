@@ -9,18 +9,14 @@
 #include "ImageScale.h"
 #include "QualityCheck.h"
 
+#include"ReductionChrominanceChannels.h"
+
 using namespace std;
 using namespace _Obrazy;
-
-
-
 int _Obrazy::PlatformaTestowaOgolna() {
 
 	return 0;
 }
-
-
-
 int _Obrazy::PlatformaTestowaMichal() {
 
 	PPMFile plik("_pliki\\fgd.ppm");
@@ -66,10 +62,8 @@ int _Obrazy::PlatformaTestowaMichal() {
 
 	return 0;
 }
-
-
 int _Obrazy::PlatformaTestowaKasia() 
-{
+{/*
 	cout << "KONWERSJA DO SKALI SZAROSCI!" << endl;
 	ConvertToGrey plik("obraz.ppm"); // konwersja do skali szarosci
 
@@ -85,10 +79,18 @@ int _Obrazy::PlatformaTestowaKasia()
 	CheckQuality check3("obrazek.ppm", "obrazek.jpg");
 	cout << "\nSprawdzanie dla gif" << endl;
 	CheckQuality check4("obrazek.ppm", "obrazek.gif");
+	return 0;*/
 	return 0;
 }
 
+#include"RAWFile.h"
 int _Obrazy::PlatformaTestowaMarysia() {
+
+	ReductionChrominanceChannels rcc("nowy.ppm", "nowy_yyy.ppm");
+	rcc.ReduceChrominance("4:4:4");
+
+	//	rcc.Save();
+		rcc.ConvertAllToRGB();
 
 
 	return 0;
@@ -119,7 +121,6 @@ void _Obrazy::WykonajKonwersje(string name) {
 
 
 }
-
 void _Obrazy::PoliczRozmiary(string name) {
 	int kropka = name.find_last_of('.');
 	name = name.substr(0, kropka + 1);

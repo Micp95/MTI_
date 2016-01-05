@@ -147,6 +147,12 @@
     <ClCompile Include="SwitchgearClient.cpp">
       <Filter>Source Files\Siec</Filter>
     </ClCompile>
+    <ClCompile Include="ReductionChrominanceChannels.cpp">
+      <Filter>Source Files\Obrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="ReductionAmountOfColours.cpp">
+      <Filter>Source Files\Obrazy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Spis.h">
@@ -259,6 +265,12 @@
     </ClInclude>
     <ClInclude Include="SwitchgearClient.h">
       <Filter>Header Files\Siec</Filter>
+    </ClInclude>
+    <ClInclude Include="ReductionChrominanceChannels.h">
+      <Filter>Header Files\Obrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="ReductionAmountOfColours.h">
+      <Filter>Header Files\Obrazy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

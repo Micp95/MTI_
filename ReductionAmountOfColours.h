@@ -1,0 +1,6 @@
+#ifndef REDUCTIONAMOUNTOFCOLOURS_H
+#define REDUCTIONAMOUNTOFCOLOURS_H
+
+
+
+#endif#pragma once

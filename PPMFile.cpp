@@ -123,7 +123,6 @@ string PPMFile::CreateHeader() {
 	return header;
 }
 
-
 int PPMFile::LoadDate(int lhead) {
 	RAWFile<char> plik;
 	date = plik.Wczytaj(FIleName, lhead);	//Wczytanie charow z pominieciem naglowka
@@ -175,3 +174,4 @@ void* PPMFile::Transform() {
 	
 	return (void*)tmp;
 }
+

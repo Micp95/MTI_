@@ -4,7 +4,7 @@
 
 #include "Spis.h"
 #include <string>
-
+#include <fstream>
 
 using namespace std;
 
@@ -19,6 +19,7 @@ namespace _Obrazy {
 
 	void WykonajKonwersje(string name);
 	void PoliczRozmiary(string name);
+	void DopiszPlik(const string& name, fstream &plik);
 }
 
 #endif

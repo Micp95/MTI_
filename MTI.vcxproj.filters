@@ -37,6 +37,15 @@
     <Filter Include="Source Files\Obrazy">
       <UniqueIdentifier>{808391e6-b5dd-4d76-94e7-dd0215617c94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Wideo">
+      <UniqueIdentifier>{00aa9152-ea5f-4dd0-bed5-650f29ec2b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Video">
+      <UniqueIdentifier>{ed0c00ab-2559-483a-b300-bd8bca6fccc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Video">
+      <UniqueIdentifier>{e830fec6-6364-4234-b4c9-0a2a67f63d6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -152,6 +161,9 @@
     </ClCompile>
     <ClCompile Include="ReductionAmountOfColours.cpp">
       <Filter>Source Files\Obrazy</Filter>
+    </ClCompile>
+    <ClCompile Include="Video.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +283,9 @@
     </ClInclude>
     <ClInclude Include="ReductionAmountOfColours.h">
       <Filter>Header Files\Obrazy</Filter>
+    </ClInclude>
+    <ClInclude Include="Video.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

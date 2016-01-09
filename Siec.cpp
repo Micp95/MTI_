@@ -38,20 +38,34 @@ int _Siec::PlatformaTestowaOgolna(){
 
 int _Siec::PlatformaTestowaMichal(){
 	
-	cout << "1.Server\n2.Client\n\n";
-	int k;
-	cin >> k;
+	
+	char k;
+	while (true) {
+		system("cls");
+		cout << "1.Server\n2.Client\n\n";
+		cin >> k;
+		try {
+			if (k > 47 && k < 58) {
+				throw SwitchgearFUN::Wyjatki::PodamaCyfra();
+			}
+
+		}
+		catch (SwitchgearFUN::Wyjatki::PodamaCyfra) {
+			break;
+		}
+	}
 
 
 
-	if (k == 1) {
+	if (k == 49) {
 		Switchgear baza(3432);
 		baza.Server(10);
 	}
 	else {
 		SwitchgearClient kbaza(3432);
 	//	kbaza.Client("192.168.215.20");
-		kbaza.Client("169.254.21.220");
+//		kbaza.Client("169.254.21.220");
+		kbaza.Client("25.128.73.116");
 	}
 	/*
 

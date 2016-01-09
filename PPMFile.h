@@ -74,9 +74,12 @@ private:
 
 	Pixel BadPixel;
 	string FIleName;
+	
 	char* date;
-	Pixel** arrs;
 	long size;
+		
+	Pixel** arrs;
+
 	
 	int LoadHeader(fstream& file);
 	int LoadDate(int lhead);

@@ -13,6 +13,15 @@ namespace SwitchgearFUN {
 	DWORD WINAPI ListenClient(LPVOID lpParam);
 	DWORD WINAPI HandlingClient(LPVOID lpParam);
 	DWORD WINAPI ListenServer(LPVOID lpParam);
+
+	class Wyjatki {
+	public:
+		class Przerwane {};
+		class BrakCyfry {};
+		class PodamaCyfra {};
+		class ZamkniecieStrumienia {};
+
+	};
 }
 
 

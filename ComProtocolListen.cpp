@@ -32,7 +32,8 @@ Package* ComProtocolListen::Listen()
 	if (err != 0) {
 		Package* ret = new Package();
 		ret->err = err;
-		return ret;
+		throw SwitchgearFUN::Wyjatki::ZamkniecieStrumienia();
+	//	return ret;
 	}
 	string acum,tmp,kod,war="END";
 	int size;

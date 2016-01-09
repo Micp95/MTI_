@@ -64,7 +64,7 @@ void SwitchgearClient::Client(string ip) {
 					keybuff = "";
 				}
 				else if (wybor == 8) //backspace
-					keybuff = keybuff.substr(keybuff.length() - 1);
+					keybuff = keybuff.substr(0,keybuff.length() - 1);
 				else
 					keybuff += wybor;
 			}
@@ -76,9 +76,12 @@ void SwitchgearClient::Client(string ip) {
 			CloseHandle(Listner);
 			break;
 		}
+		else if (endflag)
+			break;
 
 		Sleep(10);
 	}
+	cout << "\n\nDisconect!" << endl;
 	endflag = true;
 	Sleep(100);
 }

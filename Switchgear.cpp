@@ -163,7 +163,14 @@ namespace SwitchgearFUN {
 			if (baza->endflag)
 				break;
 
-			paczki = nasl.Listen();
+			try {
+				paczki = nasl.Listen();
+			}
+			catch (SwitchgearFUN::Wyjatki::ZamkniecieStrumienia) {
+				nasl.Disconection();
+				baza->endflag = true;
+				break;
+			}
 
 			if (nasl.disconet) {//zamkniecie strumienia
 				nasl.Disconection();

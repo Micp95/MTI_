@@ -15,6 +15,8 @@
 #include "Dzwiek.h"
 #include "Siec.h"
 #include "Obrazy.h"
+#include "Video.h"
+
 
 using namespace _MAIN;
 using namespace std;
@@ -23,7 +25,7 @@ using namespace std;
 
 int main()
 {
-	_Obrazy::PlatformaTestowaOgolna();
+	_Video::PlatformaTestowaOgolna();
 
 	system("pause");
 

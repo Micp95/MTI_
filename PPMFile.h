@@ -56,7 +56,7 @@ class PPMFile
 {
 public:
 	
-	PPMFile(string name);
+	PPMFile(string name, int colorMax = 255);
 	~PPMFile();
 
 	void LoadFile();

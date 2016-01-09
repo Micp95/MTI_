@@ -10,7 +10,8 @@ using namespace std;
 
 
 
-PPMFile::PPMFile(string name):FIleName(name), err(0){
+PPMFile::PPMFile(string name, int colorMax):FIleName(name), err(0){
+	max = colorMax;
 	date = NULL;
 	BadPixel.Sets(0, 0, 0);
 }
@@ -99,7 +100,7 @@ string PPMFile::CreateHeader() {
 	string header = "P6\n";
 
 	//Komentarz
-	header += "# SPRZEDAM Opla - nowka sztuka, nie smigany!!!\t\t#UsunKonto\n";
+	header += "#hasztag\n";
 
 	//Szerokosc obrazu
 	strum << width;
@@ -118,8 +119,7 @@ string PPMFile::CreateHeader() {
 	strum >> tmp;
 	strum.clear();
 	header += tmp + "\n";
-
-
+	
 	return header;
 }
 
@@ -152,7 +152,7 @@ void PPMFile::CreateArrs() {//Tworzenie mapy pikseli
 	for (int k = 0; k < high; k++)
 		for (int p = 0; p < width; p++) {
 			arrs[p][k].Sets(&date[pos++], &date[pos++], &date[pos++]);
-			if (pos > size)
+			if (pos > size )
 				return;
 		}
 

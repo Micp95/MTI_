@@ -10,6 +10,7 @@
 #include "QualityCheck.h"
 
 #include"ReductionChrominanceChannels.h"
+#include"ReductionAmountOfColours.h"
 
 using namespace std;
 using namespace _Obrazy;
@@ -88,12 +89,34 @@ int _Obrazy::PlatformaTestowaKasia()
 
 int _Obrazy::PlatformaTestowaMarysia() {
 
-	ReductionChrominanceChannels rcc("nowy.ppm", "nowy_yyy.ppm");
-	rcc.ReduceChrominance("4:4:4");
+	//ReductionChrominanceChannels rcc1("krajobraz_1920x1080_004.ppm", "krajobraz_1920x1080_004_xxx.ppm");
+	//ReductionChrominanceChannels rcc2("zrzut_ekranu.ppm", "zrzut_ekranu_xxx.ppm");
+	//ReductionChrominanceChannels rcc3("pingwin.ppm", "pingwin_xxx.ppm");
+	//rcc1.ReduceChrominance("4:2:0");
+	//rcc2.ReduceChrominance("4:2:0");
+	//rcc3.ReduceChrominance("4:2:0");
 
-	//	rcc.Save();
-		rcc.ConvertAllToRGB();
+	//	rcc1.Save();
+	//	rcc2.Save();
+	//	rcc3.Save();
 
+	//rcc1.ConvertAllToRGB();
+	//rcc2.ConvertAllToRGB();
+	//rcc3.ConvertAllToRGB();
+
+//	ReductionAmountOfColours raoc1("krajobraz_1920x1080_004.ppm", "krajobraz_1920x1080_004_xxx.ppm");
+	ReductionAmountOfColours raoc2("zrzut_ekranu.ppm", "zrzut_ekranu_xxx.ppm");
+//	ReductionAmountOfColours raoc3("pingwin.ppm", "pingwin_xxx.ppm");
+
+//	raoc1.ReduceColours();
+	raoc2.ReduceColours();
+//	raoc3.ReduceColours();
+	
+	cout << "zapisuje..." << endl;
+
+//	raoc1.Save();
+	raoc2.Save();
+//	raoc3.Save();
 
 	return 0;
 }

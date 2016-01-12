@@ -89,34 +89,34 @@ int _Obrazy::PlatformaTestowaKasia()
 
 int _Obrazy::PlatformaTestowaMarysia() {
 
-	//ReductionChrominanceChannels rcc1("krajobraz_1920x1080_004.ppm", "krajobraz_1920x1080_004_xxx.ppm");
-	//ReductionChrominanceChannels rcc2("zrzut_ekranu.ppm", "zrzut_ekranu_xxx.ppm");
-	//ReductionChrominanceChannels rcc3("pingwin.ppm", "pingwin_xxx.ppm");
-	//rcc1.ReduceChrominance("4:2:0");
-	//rcc2.ReduceChrominance("4:2:0");
-	//rcc3.ReduceChrominance("4:2:0");
+	ReductionChrominanceChannels rcc1("krajobraz_1920x1080_004.ppm", "krajobraz_1920x1080_004_yyy.ppm");
+	ReductionChrominanceChannels rcc2("zrzut_ekranu.ppm", "zrzut_ekranu_yyy.ppm");
+	ReductionChrominanceChannels rcc3("pingwin.ppm", "pingwin_yyy.ppm");
+	rcc1.ReduceChrominance("4:4:4");
+	rcc2.ReduceChrominance("4:4:4");
+	rcc3.ReduceChrominance("4:4:4");
 
-	//	rcc1.Save();
-	//	rcc2.Save();
-	//	rcc3.Save();
+		rcc1.Save();
+		rcc2.Save();
+		rcc3.Save();
 
-	//rcc1.ConvertAllToRGB();
-	//rcc2.ConvertAllToRGB();
-	//rcc3.ConvertAllToRGB();
+	rcc1.ConvertAllToRGB();
+	rcc2.ConvertAllToRGB();
+	rcc3.ConvertAllToRGB();
 
-//	ReductionAmountOfColours raoc1("krajobraz_1920x1080_004.ppm", "krajobraz_1920x1080_004_xxx.ppm");
+	//-----------------------
+
+	ReductionAmountOfColours raoc1("krajobraz_1920x1080_004.ppm", "krajobraz_1920x1080_004_xxx.ppm");
 	ReductionAmountOfColours raoc2("zrzut_ekranu.ppm", "zrzut_ekranu_xxx.ppm");
-//	ReductionAmountOfColours raoc3("pingwin.ppm", "pingwin_xxx.ppm");
+	ReductionAmountOfColours raoc3("pingwin.ppm", "pingwin_xxx.ppm");
 
-//	raoc1.ReduceColours();
+	raoc1.ReduceColours();
 	raoc2.ReduceColours();
-//	raoc3.ReduceColours();
+	raoc3.ReduceColours();
 	
-	cout << "zapisuje..." << endl;
-
-//	raoc1.Save();
+	raoc1.Save();
 	raoc2.Save();
-//	raoc3.Save();
+	raoc3.Save();
 
 	return 0;
 }
